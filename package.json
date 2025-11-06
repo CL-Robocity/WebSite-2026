@@ -1,0 +1,20 @@
+{
+  "name": "website-2026",
+  "version": "1.0.0",
+  "description": "Official Cl-Robocity Website for 2026",
+  "homepage": "https://github.com/CL-Robocity/WebSite-2026#readme",
+  "bugs": {
+    "url": "https://github.com/CL-Robocity/WebSite-2026/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CL-Robocity/WebSite-2026.git"
+  },
+  "license": "ISC",
+  "author": "FA_pew - Cl_Robocity",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
