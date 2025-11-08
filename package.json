@@ -12,8 +12,8 @@
   },
   "license": "ISC",
   "author": "FA_pew - Cl_Robocity",
-  "type": "commonjs",
-  "main": "main.js",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
