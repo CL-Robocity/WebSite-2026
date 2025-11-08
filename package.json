@@ -19,5 +19,10 @@
   },
   "devDependencies": {
     "vite": "^7.2.1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "path": "^0.12.7",
+    "url": "^0.11.4"
   }
 }

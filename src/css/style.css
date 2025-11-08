@@ -1,0 +1,93 @@
+html {
+    --NavBarHeight: 150px;
+    --NavBarPadding: 40px;
+    --NavBarLogoSize: 500px;
+    --NavBarLogoMargin: 20px;
+    --SeparatorHeight: 2px;
+
+    --ParticleMaxCount: 8;
+    --ParticleMinSize: 2;
+    --ParticleMaxSize: 4;
+    --ParticleMinSpeed: 8;
+    --ParticleMaxSpeed: 15;
+    --ParticleOpacity: 40;
+    
+    --CLcolor2: #3dc1dc;
+    --CLcolor1: #fa7605;
+    --CLcontrast: #fff;
+
+    --B1: #0f0f0f;
+    --B2: #141414;
+
+    scrollbar-width: auto;
+    scrollbar-color: #a2a2a2 #2c2c2c;
+    scroll-behavior: smooth;
+    /*scrollbar-color: #3dc1dc #0b0b0b;*/
+}
+
+body {
+    position: absolute;
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+
+    background: #000;
+}
+
+#appMain {
+    position: relative;
+    width: 100%;
+    height: max-content;
+
+    background: #0f0f0ff5;
+    backdrop-filter: blur(30px);
+
+    margin-top: calc(var(--NavBarHeight));
+}
+
+#bgParticles {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9;
+
+    pointer-events: none;
+}
+
+.particle {
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    aspect-ratio: 1;
+
+    background: var(--CLcolor1);
+    border-radius: 50%;
+
+    z-index: 9;
+}
+
+@font-face {
+    font-family: "CLvetica";
+    src: url("../assets/font/Coolvetica Rg.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.appBox {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    background-color: #353535;
+}
+
+.appBox::after {
+    position: absolute;
+    width: 100%;
+    height: var(--SeparatorHeight);
+    left: 0;
+    bottom: 0;
+
+    content: "";
+    background: linear-gradient(to right, transparent, var(--CLcolor1), transparent);
+}
