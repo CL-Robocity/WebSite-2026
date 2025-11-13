@@ -1,9 +1,19 @@
 html {
+    --scX: 1;
+    --scY: 1;
+
     --NavBarHeight: 150px;
     --NavBarPadding: 40px;
     --NavBarLogoSize: 500px;
     --NavBarLogoMargin: 20px;
+    --NavBarFontSize: 18px;
     --SeparatorHeight: 2px;
+
+    --HomeTitlePadding: 100px;
+    --HomeSubtitleFontSize: 35px;
+    --HomeButtonsPadding: 60px;
+    --HomeButtonsSize: 24px;
+    --HomeImgSize: 800px;
 
     --ParticleMaxCount: 8;
     --ParticleMinSize: 2;
@@ -14,7 +24,7 @@ html {
     
     --CLcolor2: #3dc1dc;
     --CLcolor1: #fa7605;
-    --CLcontrast: #fff;
+    --CLcontrast: #000;
 
     --B1: #0f0f0f;
     --B2: #141414;

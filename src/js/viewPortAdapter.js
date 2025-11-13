@@ -1,17 +1,22 @@
 const styles = getComputedStyle(document.documentElement)
 import {dataPropList as propList } from "./data.js"
-let lastSize = {w: 1920, h: 1080}
+import {dataResList as resList } from "./data.js"
+let lastSize = 1920
 
 function adapt() { 
+
+    const resize = resList.filter(a => a >= screen.width)[0] / lastSize
     propList.forEach((prop) => {
-        const val = styles.getPropertyValue(prop.id).trim()
+        const val = styles.getPropertyValue(prop).trim()
         if (val.endsWith("px")) {
             const px = parseInt(val.slice(0, -2))
-            const adapted = !prop.dir ? px * screen.width / lastSize.w : px * screen.height / lastSize.h
-            document.documentElement.style.setProperty(prop.id, `${adapted}px`)
+            const adapted = px * resize
+            document.documentElement.style.setProperty(prop, `${adapted}px`)
         }
     })
-    lastSize = {w: screen.width, h: screen.height}
+    lastSize = resList.filter(a => a >= screen.width)[0]
+
+    window.scrollTo(0, 0)
 }
 
 adapt()

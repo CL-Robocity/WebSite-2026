@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./src/css/navBar.css">
     <link rel="stylesheet" href="./src/css/home.css">
     <link rel="icon" href="./src/assets/svg/CLquadratoFLL.svg" type="image/X-icon">
-    <!-- <script src="./src/js/viewPortAdapter.js" type="module"></script> -->
+    <script src="./src/js/viewPortAdapter.js" type="module"></script>
     <script src="./src/js/script.js" type="module" defer></script>
     <script src="./src/js/particles.js" defer></script>
     <title>CL-Robocity</title>
@@ -17,7 +17,7 @@
 
     <div id="barBox">
         <div id="barLogo">
-            <svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000.9 272.7">
+            <svg id="lvl1" data-name="lvl1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000.9 272.7">
                 <defs>
                     <style>
                     .cls-1, .cls-2 {
@@ -60,10 +60,22 @@
                     <div class="team button">Scopri il Team ➜</div>
                     <div class="sponsors button">Diventa Sponsor ★</div>
                 </div>
-                <div id="homeTitleBg"></div>
             </div>
 
-            <div id="homeImageBox"></div>
+            <div id="homeImageBox">
+                <div id="homeImgContainer">
+                    <div id="homeImgWrapper">
+                        <div class="img i0 selected"></div>
+                        <div class="img i1"></div>
+                        <div class="img i2"></div>
+                        <div class="img i3"></div>
+                    </div>
+
+                    <div class="arrow l">➜</div>
+                    <div class="arrow r">➜</div>
+                    <div id="homeImgProgressionBar"></div>
+                </div>
+            </div>
         </div>
 
         <div id="teamBox" class="appBox"></div>

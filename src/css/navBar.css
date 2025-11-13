@@ -61,7 +61,7 @@
 }
 
 .barList {
-    font-size: 18px;
+    font-size: var(--NavBarFontSize);
     color: #fff;
     font-family: "CLvetica";
 
@@ -95,6 +95,10 @@
     cursor: pointer;
     background: color-mix(in srgb, var(--CLcolor1) 20%, transparent);
     color: var(--CLcolor1);
+}
+
+.barList.selected:hover {
+    transform: scale(1.1);
 }
 
 .barList.selected::after, .barList:hover::after {

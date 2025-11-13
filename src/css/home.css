@@ -6,7 +6,7 @@
     background: var(--B1);
 
     display: grid;
-    grid-template-columns: .4fr .6fr;
+    grid-template-columns: max-content 1fr;
     grid-template-rows: 1fr;
 }
 
@@ -16,7 +16,7 @@
     height: 100%;
 
     
-    padding: 100px 40px;
+    padding: var(--HomeTitlePadding) calc(0.4 * var(--HomeTitlePadding));
     box-sizing: border-box;
 
     display: grid;
@@ -26,7 +26,7 @@
 
 #homeTitleBox::after {
     position: absolute;
-    width: 1px;
+    width: calc(var(--SeparatorHeight) / 2);
     height: 100%;
     top: 0;
     right: 0;
@@ -51,7 +51,7 @@
 #homeTitle>.t {
     font-family: "CLvetica";
     color: var(--CLcolor1);
-    font-size: 100px;
+    font-size: var(--HomeTitlePadding);
 
     animation: glowAnim infinite alternate ease 4s;
 
@@ -61,7 +61,8 @@
 #homeTitle>.s {
     font-family: "CLvetica";
     color: #fff;
-    font-size: 35px;
+    font-size: var(--HomeSubtitleFontSize);
+    align-self: center;
 }
 
 #homeButtons {
@@ -70,23 +71,23 @@
     height: 100%;
 
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: start;
     flex-wrap: wrap;
 
-    padding: 60px 0;
+    padding: var(--HomeButtonsPadding) 0;
     box-sizing: border-box;
 }
 
 #homeButtons > .button {
     position: relative;
-    font-size: 24px;
+    font-size: var(--HomeButtonsSize);
     font-family: "CLvetica";
 
-    padding: 15px 5%;
+    padding: calc(var(--HomeButtonsSize) * 5/8) 5%;
     border-radius: 100px;
 
-    transition: all .3s linear;
+    transition: all .3s cubic-bezier(.4, 2, .6, 1);
 }
 
 #homeButtons > .button:hover {
@@ -99,21 +100,126 @@
     background: var(--CLcolor1);
     filter: drop-shadow(0 0 50px color-mix(in srgb, var(--CLcolor1) 65%, transparent));
 
-    margin-right: 30px;
+    margin-right: calc(var(--HomeButtonsSize) * 5/4);
 }
 
 #homeButtons > .sponsors {
     color: var(--CLcolor1);
     border: var(--CLcolor1) 3px solid;
-    filter: drop-shadow(0 0 20px var(--CLcolor1));
+    filter: drop-shadow(0 0 var(--HomeButtonsSize) var(--CLcolor1));
 }
 
 #homeButtons > .team:hover {
-    filter: drop-shadow(0 0 20px color-mix(in srgb, var(--CLcolor1) 65%, transparent));
+    filter: drop-shadow(0 0 var(--HomeButtonsSize) color-mix(in srgb, var(--CLcolor1) 65%, transparent));
 }
 
 #homeButtons > .sponsors:hover {
     filter: drop-shadow(0 0 5px var(--CLcolor1));
+}
+
+#homeImageBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#homeImgContainer {
+    position: relative;
+    width: clamp(calc(var(--HomeImgSize) * 5/8), 80%, var(--HomeImgSize));
+    aspect-ratio: 4/3;
+
+    border: var(--CLcolor1) 3px solid;
+    border-radius: calc(var(--HomeImgSize) / 15) 0;
+
+    filter: drop-shadow(0 0 calc(var(--HomeImgSize) / 40) color-mix(in srgb, var(--CLcolor1) 40%, transparent));
+
+    overflow: hidden;
+}
+
+#homeImgContainer > .arrow {
+    position: absolute;
+    width: calc(var(--HomeImgSize) / 15);
+    aspect-ratio: 1;
+
+    top: calc(50% - calc(var(--HomeImgSize) / 15));
+
+    border-radius: 100%;
+    background: color-mix(in srgb, var(--CLcolor1) 80%, transparent);
+    z-index: 10;
+    align-self: start;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: calc(var(--HomeImgSize) / 15);
+
+    color: var(--CLcontrast);
+    font-size: calc(var(--HomeSubtitleFontSize) / 2);
+    filter: drop-shadow(0 0 0 var(--CLcolor1));
+
+    transition: all .1s ease;
+    user-select: none;
+}
+
+#homeImgContainer > .arrow:hover {
+    cursor: pointer;
+    filter: drop-shadow(0 0 calc(var(--HomeImgSize) / 80) var(--CLcolor1));
+}
+
+#homeImgContainer > .l {
+    left: 15px;
+
+    transform: rotateY(180deg);
+}
+
+#homeImgContainer > .r {
+    right: 15px;
+}
+
+#homeImgContainer > .l:hover {
+    transform: scale(1.1) rotateY(180deg);
+}
+
+#homeImgContainer > .r:hover {
+    transform: scale(1.1);
+}
+
+#homeImgWrapper {
+    position: relative;
+    width: 400%;
+    height: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+
+    transform: translateX(0);
+    transition: transform .5s ease;
+}
+
+#homeImgWrapper > .img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    transition: transform .5s ease, opacity 1s cubic-bezier(.4, 2, .6, 1);
+
+    opacity: 0%;
+}
+
+#homeImgWrapper > .img.selected {
+    opacity: 100%;
+}
+
+#homeImgWrapper > .img:hover {
+    transform: scale(1.05);
 }
 
 @keyframes glowAnim {
