@@ -8,6 +8,7 @@ html {
     --NavBarLogoMargin: 20px;
     --NavBarFontSize: 18px;
     --SeparatorHeight: 2px;
+    --ModeSelectorWidth: 100px;
 
     --HomeTitlePadding: 100px;
     --HomeSubtitleFontSize: 35px;
@@ -24,6 +25,7 @@ html {
     
     --CLcolor1: #3dc1dc;
     --CLcolor2: #fa7605;
+    --CLcolorMain: var(--CLcolor1);
     --CLcontrast: #fff;
 
     --B1: #0f0f0f;
@@ -65,13 +67,73 @@ body {
     pointer-events: none;
 }
 
+#modeSelector {
+    position: fixed;
+    width: var(--ModeSelectorWidth);
+    aspect-ratio: 16/9;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 100px;
+    background: color-mix(in srgb, var(--CLcolor1) 60%, transparent);
+    backdrop-filter: blur(30px);
+
+    box-shadow: 0px 8px 32px 0 #0000005e,
+                inset 0 4px 5px #ffffff2e,
+                inset 0 -4px 5px #ffffff2e;
+    z-index: 10;
+
+    padding: 5px;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+
+    transition: all .2s ease;
+}
+
+#modeSelector.selected {
+    background: color-mix(in srgb, var(--CLcolor2) 60%, transparent);
+}
+
+#modeSelector > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "CLvetica";
+    font-size: calc(var(--ModeSelectorWidth) / 5);
+}
+
+#modeBall {
+    position: absolute;
+    height: calc(100% - 10px);
+    left: 5px;
+    top: 5px;
+    aspect-ratio: 1;
+
+    background: var(--CLcolor1);
+    border-radius: 100px;
+
+    transition: all .2s ease;
+}
+
+#modeBall:hover {
+    cursor: pointer;
+}
+
+#modeBall.selected {
+    background: var(--CLcolor2);
+    left: calc(100% - var(--ModeSelectorWidth) / 16 * 9 + 5px) ;
+}
+
 .particle {
     position: fixed;
     top: 50%;
     left: 20%;
     aspect-ratio: 1;
 
-    background: var(--CLcolor1);
+    background: var(--CLcolorMain);
     border-radius: 50%;
 
     z-index: 9;
@@ -99,5 +161,5 @@ body {
     bottom: 0;
 
     content: "";
-    background: linear-gradient(to right, transparent, var(--CLcolor1), transparent);
+    background: linear-gradient(to right, transparent, var(--CLcolorMain), transparent);
 }

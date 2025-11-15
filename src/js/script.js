@@ -7,7 +7,7 @@ import { toggleNavBar } from "./mobile.js"
 const styles = getComputedStyle(document.documentElement)
 const barLogo = document.getElementById("barLogo")
 const barWrapper = document.getElementById("barWrapper")
-const barHeight = parseInt(styles.getPropertyValue("--NavBarHeight").trim().slice(0, -2))
+let barHeight
 
 let currentTab = ""
 
@@ -17,21 +17,25 @@ barLogo.addEventListener("click", () => {
 })
 
 //NOTE - barList Creator
-barList.forEach((e, idx) => {
-    const elm = document.createElement("div")
-    elm.classList.add("barList")
-    elm.id = `barList_${idx}`
-    elm.innerHTML = e.name
+function barListCreator() {
+    barHeight = parseInt(styles.getPropertyValue("--NavBarHeight").trim().slice(0, -2))
+    barList.forEach((e, idx) => {
+        const elm = document.createElement("div")
+        elm.classList.add("barList")
+        elm.id = `barList_${idx}`
+        elm.innerHTML = e.name
 
-    const rect = document.getElementById(e.id).getBoundingClientRect()
-    const y = rect.top + window.scrollY - barHeight
-    elm.addEventListener("click", () => {
-        window.scrollTo(0, y)
-        toggleNavBar()
+        const rect = document.getElementById(e.id).getBoundingClientRect()
+        const y = rect.top + window.scrollY - barHeight
+        elm.addEventListener("click", () => {
+            window.scrollTo(0, y)
+            toggleNavBar()
+        })
+
+        barWrapper.appendChild(elm)
     })
-
-    barWrapper.appendChild(elm)
-})
+}
+window.addEventListener("DOMContentLoaded", () => {barListCreator(); barSelectionObserver()})
 
 window.addEventListener("scroll", () => {
     barSelectionObserver()
@@ -55,7 +59,6 @@ function barSelectionObserver() {
         }
     })
 }
-barSelectionObserver()
 
 //!SECTION
 
@@ -100,6 +103,36 @@ function homeImgSlide() {
 
 function roundTo(n, dec) {
     return Math.round(n/dec)*dec
+}
+
+//!SECTION
+
+//SECTION - ModeSelector
+
+let MODE = 1
+
+const modeSelector = document.getElementById("modeSelector")
+const modeBall = document.getElementById("modeBall")
+
+modeBall.addEventListener("click", () => {
+    MODE = !MODE;
+    fetchMode()
+})
+
+function fetchMode() {
+    if (MODE) {
+        modeBall.classList.add("selected")
+        modeSelector.classList.add("selected")
+
+        document.documentElement.style.setProperty("--CLcontrast", "#000")
+        document.documentElement.style.setProperty("--CLcolorMain", styles.getPropertyValue("--CLcolor2").trim())
+    } else {
+        modeBall.classList.remove("selected")
+        modeSelector.classList.remove("selected")
+
+        document.documentElement.style.setProperty("--CLcontrast", "#fff")
+        document.documentElement.style.setProperty("--CLcolorMain", styles.getPropertyValue("--CLcolor1").trim())
+    }
 }
 
 //!SECTION

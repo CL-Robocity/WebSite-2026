@@ -15,5 +15,6 @@
         --HomeSubtitleFontSize: 5vw;
         --HomeButtonsPadding: 5vw;
         --HomeButtonsSize: clamp(10px, 4vw, 24px);
+        --ModeSelectorWidth: 70px;
     }
 }

@@ -18,7 +18,8 @@ export const dataPropList = [
     "--HomeButtonsPadding",
     "--HomeButtonsSize",
     "--SeparatorHeight",
-    "--HomeImgSize"
+    "--HomeImgSize",
+    "--ModeSelectorWidth"
 ]
 
 export const dataResList = [1920, 2560, 3840, 7680]

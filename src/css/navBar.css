@@ -24,7 +24,7 @@
     height: 1px;
     content: "";
 
-    background: linear-gradient(to right, transparent, var(--CLcolor1), transparent);
+    background: linear-gradient(to right, transparent, var(--CLcolorMain), transparent);
     opacity: 50%;
 }
 
@@ -35,7 +35,7 @@
     
     margin: var(--NavBarLogoMargin) 0;
     object-fit: contain;
-    color: var(--CLcolor1);
+    color: var(--CLcolorMain);
 
     transition: transform 0.2s cubic-bezier(.4, 2, .6, 1);
 }
@@ -87,7 +87,7 @@
     height: 2px;
     width: 100%;
 
-    background-color: var(--CLcolor1);
+    background-color: var(--CLcolorMain);
     border-radius: 2px;
 
     transition: transform 0.25s cubic-bezier(.4, 2, .6, 1);
@@ -97,8 +97,8 @@
 
 .barList.selected, .barList:hover {
     cursor: pointer;
-    background: color-mix(in srgb, var(--CLcolor1) 20%, transparent);
-    color: var(--CLcolor1);
+    background: color-mix(in srgb, var(--CLcolorMain) 20%, transparent);
+    color: var(--CLcolorMain);
 }
 
 .barList.selected:hover {

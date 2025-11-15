@@ -1,6 +1,6 @@
 @media only screen and (max-width: 1270px) and (orientation: landscape) {
     #homeBox {
-        height: calc(100svh - var(--NavBarHeight));
+        height: calc(100vh - var(--NavBarHeight));
     }
 }
 
@@ -41,7 +41,7 @@
 
         content: "";
 
-        background: linear-gradient(to right, transparent, var(--CLcolor1), transparent);
+        background: linear-gradient(to right, transparent, var(--CLcolorMain), transparent);
     }
 
     #homeImgContainer > .arrow {

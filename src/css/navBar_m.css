@@ -30,7 +30,7 @@
         height: 100%;
         width: 1px;
 
-        background: linear-gradient(to bottom, transparent, var(--CLcolor1), transparent);
+        background: linear-gradient(to bottom, transparent, var(--CLcolorMain), transparent);
         opacity: 50%;
     }
 
@@ -68,7 +68,7 @@
     #barMenuButton > svg {
         display: block;
         max-width: 30px;
-        color: var(--CLcolor1);
+        color: var(--CLcolorMain);
     }
 
     #barMenuButton > svg > * {
