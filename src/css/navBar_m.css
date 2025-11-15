@@ -9,11 +9,10 @@
         width: 100vw;
         height: calc(100vh - var(--NavBarHeight));
         top: var(--NavBarHeight);
-        transform: translateX(-100%);
+        left: -100%;
 
         background: #0a0a0aaa;
-        backdrop-filter: blur(30px);
-        z-index: 99;
+        z-index: 9;
 
         transition: all 0.3s ease;
 
@@ -23,12 +22,37 @@
         box-sizing: border-box;
     }
 
-    .barList {
-        margin: 8px 0;
+    #barWrapper::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: "";
+        height: 100%;
+        width: 1px;
+
+        background: linear-gradient(to bottom, transparent, var(--CLcolor1), transparent);
+        opacity: 50%;
     }
 
-    #barWrapper.selected {
-        transform: translateX(0);
+    #barBlurHelper {
+        position: fixed;
+        width: 100vw;
+        height: calc(100vh - var(--NavBarHeight));
+        top: var(--NavBarHeight);
+        left: -100%;
+
+        backdrop-filter: blur(30px);
+        z-index: 8;
+
+        transition: all 0.3s ease;
+    }
+
+    #barWrapper.selected, #barBlurHelper.selected {
+        left: 0;
+    }
+
+    .barList {
+        margin: 8px 0;
     }
 
     #barMenuButton {

@@ -1,5 +1,55 @@
 @media only screen and (max-width: 1270px) and (orientation: landscape) {
     #homeBox {
-        height: clamp(max-content, 100vh, 100vh);
+        height: calc(100svh - var(--NavBarHeight));
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    #homeBox {
+        height: calc(100svh - var(--NavBarHeight));
+
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(max-content, 0.3fr) 1fr;
+    }
+
+    #homeTitleBox {
+        padding: calc(var(--HomeTitlePadding) / 2) 0;
+    }
+
+    #homeTitle>.t {
+        font-size: calc(var(--HomeTitlePadding) * 1.8);
+        align-self: center;
+
+        margin: 0;
+    }
+
+    #homeButtons {
+        align-items: center;
+    }
+
+    #homeImageBox {
+        padding: 0 5vw;
+        box-sizing: border-box;
+    }
+
+    #homeTitleBox::after {
+        position: absolute;
+        width: 100vw;
+        height: calc(var(--SeparatorHeight) / 2);
+        top: 100%;
+        right: 0;
+
+        content: "";
+
+        background: linear-gradient(to right, transparent, var(--CLcolor1), transparent);
+    }
+
+    #homeImgContainer > .arrow {
+        position: absolute;
+        --arrowDim: clamp(30px, var(--HomeSubtitleFontSize), 1000px);
+        width: var(--arrowDim);
+        height: var(--arrowDim);
+
+        top: calc(50% - calc(var(--HomeImgSize) / 30));
     }
 }

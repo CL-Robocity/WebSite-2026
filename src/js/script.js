@@ -1,6 +1,8 @@
 //SECTION - NavBarScript
 import { dataBarList as barList } from "./data.js"
 
+import { toggleNavBar } from "./mobile.js"
+
 //consts
 const styles = getComputedStyle(document.documentElement)
 const barLogo = document.getElementById("barLogo")
@@ -10,6 +12,7 @@ const barHeight = parseInt(styles.getPropertyValue("--NavBarHeight").trim().slic
 let currentTab = ""
 
 barLogo.addEventListener("click", () => {
+    toggleNavBar()
     window.scrollTo(0, 0)
 })
 
@@ -24,6 +27,7 @@ barList.forEach((e, idx) => {
     const y = rect.top + window.scrollY - barHeight
     elm.addEventListener("click", () => {
         window.scrollTo(0, y)
+        toggleNavBar()
     })
 
     barWrapper.appendChild(elm)
@@ -49,8 +53,6 @@ function barSelectionObserver() {
         } else {
             elm.classList.remove("selected")
         }
-
-        if(idx == 0) console.log(normY+normRect, window.scrollY)
     })
 }
 barSelectionObserver()

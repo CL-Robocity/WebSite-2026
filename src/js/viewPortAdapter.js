@@ -2,8 +2,7 @@ const styles = getComputedStyle(document.documentElement)
 import {dataPropList as propList } from "./data.js"
 import {dataResList as resList } from "./data.js"
 let lastSize = 1920
-
-m = screen.width < 1270
+const m = screen.width < 1270
 
 function adapt() { 
     if (!m) {
