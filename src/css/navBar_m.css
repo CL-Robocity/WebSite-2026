@@ -9,8 +9,26 @@
         width: 100vw;
         height: calc(100vh - var(--NavBarHeight));
         top: var(--NavBarHeight);
-        background-color: green;
         transform: translateX(-100%);
+
+        background: #0a0a0aaa;
+        backdrop-filter: blur(30px);
+        z-index: 99;
+
+        transition: all 0.3s ease;
+
+        flex-direction: column;
+        justify-content: start;
+        padding: 40px 0;
+        box-sizing: border-box;
+    }
+
+    .barList {
+        margin: 8px 0;
+    }
+
+    #barWrapper.selected {
+        transform: translateX(0);
     }
 
     #barMenuButton {
@@ -27,5 +45,34 @@
         display: block;
         max-width: 30px;
         color: var(--CLcolor1);
+    }
+
+    #barMenuButton > svg > * {
+        transition: all 0.2s ease;
+    }
+
+    #barMenuButton.selected > svg > #menuStroke1 {
+        transform: rotateZ(45deg) translateY(-10%) translateX(5%);
+    }
+
+    #barMenuButton.selected > svg > #menuStroke2 {
+        transform: translateX(100%);
+        opacity: 0%;
+    }
+
+    #barMenuButton.selected > svg > #menuStroke3 {
+        transform: rotateZ(-45deg) translateY(-20%) translateX(-50%);
+    }
+
+    @keyframes test1 {
+        0% {
+            transform: rotateZ(0deg);
+        }
+        50% {
+            transform: rotateZ(360deg);
+        }
+        100% {
+            transform: rotateZ(0deg);
+        }
     }
 }

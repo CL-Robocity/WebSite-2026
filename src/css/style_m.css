@@ -11,7 +11,7 @@
     html {
         --NavBarHeight: 80px;
         --NavBarLogoMargin: 10px;
-        --HomeTitlePadding: 1px;
+        --HomeTitlePadding: 50px;
         --HomeSubtitleFontSize: 1px;
         --HomeButtonsSize: 18px;
     }
