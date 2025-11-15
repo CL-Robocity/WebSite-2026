@@ -1,0 +1,18 @@
+@media only screen and (max-width: 1270px) and (orientation: landscape) {
+    html {
+        --NavBarHeight: 120px;
+        --HomeTitlePadding: 85px;
+        --HomeSubtitleFontSize: 30px;
+        --HomeButtonsSize: 18px;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    html {
+        --NavBarHeight: 80px;
+        --NavBarLogoMargin: 10px;
+        --HomeTitlePadding: 1px;
+        --HomeSubtitleFontSize: 1px;
+        --HomeButtonsSize: 18px;
+    }
+}

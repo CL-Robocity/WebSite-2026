@@ -60,6 +60,10 @@
     align-items: center;
 }
 
+#barMenuButton {
+    display: none;
+}
+
 .barList {
     font-size: var(--NavBarFontSize);
     color: #fff;

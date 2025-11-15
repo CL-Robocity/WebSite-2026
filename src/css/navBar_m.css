@@ -1,0 +1,31 @@
+@media only screen and (orientation: portrait) {
+    #barBox {
+        padding: 0 10px;
+        grid-template-columns: 1fr max-content;
+    }
+
+    #barWrapper {
+        position: fixed;
+        width: 100vw;
+        height: calc(100vh - var(--NavBarHeight));
+        top: var(--NavBarHeight);
+        background-color: green;
+        transform: translateX(-100%);
+    }
+
+    #barMenuButton {
+        height: 100%;
+        max-height: 100%;
+        aspect-ratio: 1;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #barMenuButton > svg {
+        display: block;
+        max-width: 30px;
+        color: var(--CLcolor1);
+    }
+}

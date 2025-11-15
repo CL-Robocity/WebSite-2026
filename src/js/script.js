@@ -39,14 +39,18 @@ function barSelectionObserver() {
         const elm = document.getElementById(`barList_${idx}`)
         const rect = document.getElementById(e.id).getBoundingClientRect()
         const y = rect.top + window.scrollY - barHeight
+        const normY = roundTo(y, 10)
+        const normRect = roundTo(rect.height, 10)
 
         currentTab = elm.innerHTML
 
-        if (window.scrollY >= y && window.scrollY < y + rect.height) {
+        if (window.scrollY >= normY && window.scrollY < normY + normRect) {
             elm.classList.add("selected")
         } else {
             elm.classList.remove("selected")
         }
+
+        if(idx == 0) console.log(normY+normRect, window.scrollY)
     })
 }
 barSelectionObserver()
@@ -86,6 +90,14 @@ function homeImgSlide() {
     document.querySelector("#homeImgWrapper > .img.selected").classList.remove("selected")
     document.querySelector(`#homeImgWrapper > .img.i${currentPic}`).classList.add("selected")
     homeImgWrapper.style.transform = `translateX(-${25*currentPic}%)`
+}
+
+//!SECTION
+
+//SECTION - Utiliy
+
+function roundTo(n, dec) {
+    return Math.round(n/dec)*dec
 }
 
 //!SECTION

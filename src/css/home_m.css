@@ -1,0 +1,5 @@
+@media only screen and (max-width: 1270px) and (orientation: landscape) {
+    #homeBox {
+        height: clamp(max-content, 100vh, 100vh);
+    }
+}

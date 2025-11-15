@@ -22,9 +22,9 @@ html {
     --ParticleMaxSpeed: 15;
     --ParticleOpacity: 40;
     
-    --CLcolor2: #3dc1dc;
-    --CLcolor1: #fa7605;
-    --CLcontrast: #000;
+    --CLcolor1: #3dc1dc;
+    --CLcolor2: #fa7605;
+    --CLcontrast: #fff;
 
     --B1: #0f0f0f;
     --B2: #141414;
