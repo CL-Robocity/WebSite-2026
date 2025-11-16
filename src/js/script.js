@@ -71,14 +71,12 @@ const arrowR = document.querySelector("#homeImgContainer > .r")
 const homeImgWrapper = document.getElementById("homeImgWrapper")
 let currentPic = 0;
 
-function insertImg() {
-    homeImgList.forEach((img, idx) => {
-        const string = `url(${img})`
-        console.log(string)
-        document.querySelector(`#homeImgWrapper > .img.i${idx}`).style.backgroundImage = `url(${img})`
-    })
+function insertImg(m) {
+    for (let i = 0; i < 4; i++){
+        const str = `url(${homeImgList[i+4*m]})`
+        document.querySelector(`#homeImgWrapper > .img.i${i}`).style.backgroundImage = str
+    }
 }
-insertImg()
 
 arrowL.addEventListener("click", () => {
     currentPic = currentPic != 0 ? currentPic - 1 : 3;
@@ -109,29 +107,79 @@ function roundTo(n, dec) {
 
 //SECTION - ModeSelector
 
-let MODE = 1
-
+//consts
 const modeSelector = document.getElementById("modeSelector")
 const modeBall = document.getElementById("modeBall")
 
+const params = new URLSearchParams(window.location.search)
+let MODE
+
+//Params INIT ( PageStart )
+if (window.location.href.indexOf("?m=") == -1) {
+    params.set("m", "ftc")
+    history.pushState(null, '', '?m=ftc')
+    MODE = 1
+} else {
+    let m = params.get("m")
+    
+    if (m == "ftc") {
+        MODE = 1
+    } else {
+        MODE = 0
+    }
+}
+fetchMode()
+
+//Click Handler
 modeBall.addEventListener("click", () => {
     MODE = !MODE;
-    fetchMode()
+
+    //Url Handler
+    const url = new URL(window.location)
+    if (MODE) {
+        params.set("m", "ftc")
+        url.searchParams.set("m", "ftc")
+        history.replaceState(null, '', url.toString())
+    } else {
+        params.set("m", "fll")
+        url.searchParams.set("m", "fll")
+        history.replaceState(null, '', url.toString())
+    }
+    modeSelectorStyler()
+
+    document.getElementById("loader").style.transform = ""
+    setTimeout(() => window.location.reload(), 400)
 })
 
+//NOTE - FetchMode Function
 function fetchMode() {
+    const favicon = document.querySelector("link[rel~='icon']")
+
+    insertImg(MODE)
+    modeSelectorStyler()
+    if (MODE) {
+        document.documentElement.style.setProperty("--CLcontrast", "#000")
+        document.documentElement.style.setProperty("--CLcolorMain", styles.getPropertyValue("--CLcolor2").trim())
+
+        favicon.href = "./src/assets/svg/CLquadratoFTC.svg"
+    } else {
+        document.documentElement.style.setProperty("--CLcontrast", "#fff")
+        document.documentElement.style.setProperty("--CLcolorMain", styles.getPropertyValue("--CLcolor1").trim())
+
+        favicon.href = "./src/assets/svg/CLquadratoFLL.svg"
+    }
+}
+
+//NOTE - modeSelectorStyler
+function modeSelectorStyler() {
     if (MODE) {
         modeBall.classList.add("selected")
         modeSelector.classList.add("selected")
-
-        document.documentElement.style.setProperty("--CLcontrast", "#000")
-        document.documentElement.style.setProperty("--CLcolorMain", styles.getPropertyValue("--CLcolor2").trim())
+        modeSelector.style.boxShadow = "0px 8px 32px 0 #0000005e, inset 0 4px 5px color-mix(in srgb, var(--CLcolor2) 60%, transparent), inset 0 -4px 5px color-mix(in srgb, var(--CLcolor2) 60%, transparent)"
     } else {
         modeBall.classList.remove("selected")
         modeSelector.classList.remove("selected")
-
-        document.documentElement.style.setProperty("--CLcontrast", "#fff")
-        document.documentElement.style.setProperty("--CLcolorMain", styles.getPropertyValue("--CLcolor1").trim())
+        modeSelector.style.boxShadow = "0px 8px 32px 0 #0000005e, inset 0 4px 5px color-mix(in srgb, var(--CLcolor1) 60%, transparent), inset 0 -4px 5px color-mix(in srgb, var(--CLcolor1) 60%, transparent)"
     }
 }
 

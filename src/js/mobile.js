@@ -20,10 +20,12 @@ function fetchNavBar() {
         barMenuButton.classList.add("selected")
         barWrapper.classList.add("selected")
         barBlurHelper.classList.add("selected")
+        document.documentElement.style.setProperty("--scrollToggle", "hidden")
     } else {
         barMenuButton.classList.remove("selected")
         barWrapper.classList.remove("selected")
         barBlurHelper.classList.remove("selected")
+        document.documentElement.style.setProperty("--scrollToggle", "unset")
     }
 }
 

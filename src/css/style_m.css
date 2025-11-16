@@ -11,10 +11,15 @@
     html {
         --NavBarHeight: 80px;
         --NavBarLogoMargin: 10px;
+
         --HomeTitlePadding: 8vw;
         --HomeSubtitleFontSize: 5vw;
         --HomeButtonsPadding: 5vw;
         --HomeButtonsSize: clamp(10px, 4vw, 24px);
+
         --ModeSelectorWidth: 70px;
+
+        --loaderTitleFontSize: 30px;
+        --loaderProgressBarWidth: 70%;
     }
 }

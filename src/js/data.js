@@ -28,5 +28,6 @@ export const dataHomeImgList = [
     "./src/assets/img/img1.jpg",
     "./src/assets/img/img2.jpg",
     "./src/assets/img/img3.jpg",
-    "./src/assets/img/img4.jpg"
+    "./src/assets/img/img4.jpg",
+    "./src/assets/img/img5.jpg"
 ]
