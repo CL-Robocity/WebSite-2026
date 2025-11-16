@@ -26,6 +26,7 @@ function progress() {
 
 function hideLoader() {
     loader.style.transform = "translateY(-100%)"
+    setTimeout(() => progressBar.style.width = "0%", 300)
 }
 
 progress()
