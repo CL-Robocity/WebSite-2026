@@ -7,7 +7,9 @@ import { toggleNavBar } from "./mobile.js"
 const styles = getComputedStyle(document.documentElement)
 const barLogo = document.getElementById("barLogo")
 const barWrapper = document.getElementById("barWrapper")
-let barHeight
+
+let barHeight = document.getElementById("barBox").clientHeight
+window.addEventListener("resize", () => {barHeight = document.getElementById("barBox").clientHeight})
 
 let currentTab = ""
 
@@ -18,17 +20,14 @@ barLogo.addEventListener("click", () => {
 
 //NOTE - barList Creator
 function barListCreator() {
-    barHeight = parseInt(styles.getPropertyValue("--NavBarHeight").trim().slice(0, -2))
     barList.forEach((e, idx) => {
         const elm = document.createElement("div")
         elm.classList.add("barList")
         elm.id = `barList_${idx}`
         elm.innerHTML = e.name
-
-        const rect = document.getElementById(e.id).getBoundingClientRect()
-        const y = rect.top + window.scrollY - barHeight
+        
         elm.addEventListener("click", () => {
-            window.scrollTo(0, y)
+            scrollToElement(e.id)
             toggleNavBar()
         })
 
@@ -36,6 +35,13 @@ function barListCreator() {
     })
 }
 window.addEventListener("DOMContentLoaded", () => {barListCreator(); barSelectionObserver()})
+
+function scrollToElement(id) {
+    const rect = document.getElementById(id).getBoundingClientRect()
+    const y = rect.top + window.scrollY - barHeight
+    console.log(barHeight)
+    window.scrollTo(0, y)
+}
 
 window.addEventListener("scroll", () => {
     barSelectionObserver()
@@ -94,6 +100,9 @@ function homeImgSlide() {
     document.querySelector(`#homeImgWrapper > .img.i${currentPic}`).classList.add("selected")
     homeImgWrapper.style.transform = `translateX(-${25*currentPic}%)`
 }
+
+document.querySelector(".team.button").addEventListener("click", () => {scrollToElement("teamBox")})
+document.querySelector(".sponsors.button").addEventListener("click", () => {scrollToElement("sponsorBox")})
 
 //!SECTION
 

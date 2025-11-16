@@ -4,19 +4,19 @@ html {
     --scX: 1;
     --scY: 1;
 
-    --NavBarHeight: 150px;
-    --NavBarPadding: 40px;
-    --NavBarLogoSize: 500px;
-    --NavBarLogoMargin: 20px;
-    --NavBarFontSize: 18px;
-    --SeparatorHeight: 2px;
-    --ModeSelectorWidth: 100px;
+    --NavBarHeight: 15vh;
+    --NavBarPadding: 2vw;
+    --NavBarLogoSize: 50vh;
+    --NavBarLogoMargin: 2vh;
+    --NavBarFontSize: 2vh;
+    --SeparatorHeight: 0.21vh;
+    --ModeSelectorWidth: 11vh;
 
-    --HomeTitlePadding: 100px;
-    --HomeSubtitleFontSize: 35px;
-    --HomeButtonsPadding: 60px;
-    --HomeButtonsSize: 24px;
-    --HomeImgSize: 800px;
+    --HomeTitlePadding: 11vh;
+    --HomeSubtitleFontSize: 3.4vh;
+    --HomeButtonsPadding: 6.4vh;
+    --HomeButtonsSize: 2.6vh;
+    --HomeImgSize: 50vw;
 
     --ParticleMaxCount: 8;
     --ParticleMinSize: 2;
@@ -25,8 +25,8 @@ html {
     --ParticleMaxSpeed: 15;
     --ParticleOpacity: 40;
 
-    --loaderTitleFontSize: 40px;
-    --loaderLogoSize: 150px;
+    --loaderTitleFontSize: 4.6vh;
+    --loaderLogoSize: 18vh;
     --loaderProgressBarWidth: 30%;
     
     --CLcolor1: #3dc1dc;
@@ -76,16 +76,16 @@ body {
     aspect-ratio: 16/9;
     bottom: 10px;
     right: 10px;
-    border-radius: 100px;
+    border-radius: 100vw;
     background: color-mix(in srgb, var(--CLcolor1) 60%, transparent);
     backdrop-filter: blur(30px);
 
-    box-shadow: 0px 8px 32px 0 #0000005e,
-                inset 0 4px 5px color-mix(in srgb, var(--CLcolor1) 60%, transparent),
-                inset 0 -4px 5px color-mix(in srgb, var(--CLcolor1) 60%, transparent);
+    box-shadow: 0px 2vh 8vh 0 #0000005e,
+                inset 0 2vh 3vh color-mix(in srgb, var(--CLcolor1) 60%, transparent),
+                inset 0 -2vh 3vh color-mix(in srgb, var(--CLcolor1) 60%, transparent);
     z-index: 10;
 
-    padding: 5px;
+    padding: 0.6vh;
     box-sizing: border-box;
 
     display: grid;
@@ -110,13 +110,13 @@ body {
 
 #modeBall {
     position: absolute;
-    height: calc(100% - 10px);
-    left: 5px;
-    top: 5px;
+    height: calc(100% - 1.2vh);
+    left: .6vh;
+    top: .6vh;
     aspect-ratio: 1;
 
     background: var(--CLcolor1);
-    border-radius: 100px;
+    border-radius: 100vh;
 
     transition: all .2s ease;
 }
@@ -222,26 +222,28 @@ body {
     color: #fff;
     font-size: var(--loaderTitleFontSize);
 
-    margin-bottom: 10px; 
+    margin-bottom: 1vh; 
 }
 
 #loaderProgressBarBox {
     width: var(--loaderProgressBarWidth);
-    height: 5px;
-    margin: 15px 0;
+    height: .5vh;
+    margin: 1.3vh 0;
 
     background: #353535;
-    border-radius: 50px;
+    border-radius: 100vh;
 }
 
 #loaderProgressBar {
     height: 100%;
     width: 0%;
 
-    filter: drop-shadow(0 0 8px #fff);
+    transition: 0.2s all linear;
+
+    filter: drop-shadow(0 0 2vh #fff);
 
     background: #fff;
-    border-radius: 50px;
+    border-radius: 100vh;
 }
 
 #loaderSubtitles {
@@ -249,5 +251,5 @@ body {
     color: #fff;
     font-size: calc(var(--loaderTitleFontSize) / 2.5);
 
-    margin-bottom: 10px; 
+    margin-bottom: 1vh; 
 }

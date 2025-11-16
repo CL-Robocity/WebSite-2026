@@ -54,7 +54,7 @@
 
     animation: glowAnim infinite alternate ease 4s;
 
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
 }
 
 #homeTitle>.s {
@@ -84,8 +84,8 @@
     font-family: "CLvetica";
 
     padding: calc(var(--HomeButtonsSize) * 5/8) 5%;
-    border: var(--CLcolorMain) 3px solid;
-    border-radius: 100px;
+    border: var(--CLcolorMain) 0.35vh solid;
+    border-radius: 100vh;
 
     transition: all .3s cubic-bezier(.4, 2, .6, 1);
 }
@@ -98,7 +98,7 @@
 #homeButtons > .team {
     color: var(--CLcontrast);
     background: var(--CLcolorMain);
-    filter: drop-shadow(0 0 50px color-mix(in srgb, var(--CLcolorMain) 65%, transparent));
+    filter: drop-shadow(0 0 5vh color-mix(in srgb, var(--CLcolorMain) 65%, transparent));
 
     margin-right: calc(var(--HomeButtonsSize) * 5/4);
 }
@@ -113,7 +113,7 @@
 }
 
 #homeButtons > .sponsors:hover {
-    filter: drop-shadow(0 0 5px var(--CLcolorMain));
+    filter: drop-shadow(0 0 0.35vh var(--CLcolorMain));
 }
 
 #homeImageBox {
@@ -128,7 +128,7 @@
 
 #homeImgContainer {
     position: relative;
-    width: clamp(calc(var(--HomeImgSize) * 5/8), 80%, var(--HomeImgSize));
+    width: clamp(10px, var(--HomeImgSize), 65%);
     aspect-ratio: 4/3;
 
     border: var(--CLcolorMain) 3px solid;
@@ -157,7 +157,7 @@
     line-height: calc(var(--HomeImgSize) / 15);
 
     color: var(--CLcontrast);
-    font-size: calc(var(--HomeSubtitleFontSize) / 2);
+    font-size: calc(var(--HomeSubtitleFontSize) / 1.6);
     filter: drop-shadow(0 0 0 var(--CLcolorMain));
 
     transition: all .1s ease;
@@ -170,13 +170,13 @@
 }
 
 #homeImgContainer > .l {
-    left: 15px;
+    left: 1vw;
 
     transform: rotateY(180deg);
 }
 
 #homeImgContainer > .r {
-    right: 15px;
+    right: 1vw;
 }
 
 #homeImgContainer > .l:hover {
@@ -223,10 +223,10 @@
 
 @keyframes glowAnim {
     0% {
-        filter: drop-shadow(0 0 20px color-mix(in srgb, var(--CLcolorMain) 65%, transparent));
+        filter: drop-shadow(0 0 2vh color-mix(in srgb, var(--CLcolorMain) 65%, transparent));
     }
     100% {
-        filter: drop-shadow(0 0 30px color-mix(in srgb, var(--CLcolorMain) 35%, transparent));
+        filter: drop-shadow(0 0 3vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent));
     }
 }
 

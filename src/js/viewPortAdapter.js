@@ -7,6 +7,7 @@ const m = screen.width < 1270
 function adapt() { 
     if (!m) {
         const resize = resList.filter(a => a >= screen.width)[0] / lastSize
+        console.log(resList.filter(a => a >= screen.width)[0], window.screen.height, window.devicePixelRatio)
         propList.forEach((prop) => {
             const val = styles.getPropertyValue(prop).trim()
             if (val.endsWith("px")) {
@@ -21,5 +22,5 @@ function adapt() {
     }
 }
 
-adapt()
-window.addEventListener("resize", () => {adapt()})
+setTimeout(() => adapt(), 1000)
+window.addEventListener("resize", () => {setTimeout(() => adapt(), 300)})

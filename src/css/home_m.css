@@ -2,6 +2,10 @@
     #homeBox {
         height: calc(100vh - var(--NavBarHeight));
     }
+
+    #homeImgContainer {
+        width: clamp(calc(var(--HomeImgSize) * 5/8), 80%, var(--HomeImgSize));
+    }
 }
 
 @media only screen and (orientation: portrait) {
@@ -42,6 +46,10 @@
         content: "";
 
         background: linear-gradient(to right, transparent, var(--CLcolorMain), transparent);
+    }
+
+    #homeImgContainer {
+        width: clamp(calc(var(--HomeImgSize) * 5/8), 80%, var(--HomeImgSize));
     }
 
     #homeImgContainer > .arrow {
