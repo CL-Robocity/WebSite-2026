@@ -25,7 +25,7 @@ function progress() {
 }
 
 function hideLoader() {
-    //loader.style.transform = "translateY(-100%)"
+    loader.style.transform = "translateY(-100%)"
 }
 
 progress()
