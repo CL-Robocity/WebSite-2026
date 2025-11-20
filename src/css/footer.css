@@ -1,0 +1,107 @@
+#footerBox {
+    position: relative;
+    width: 100%;
+    height: calc(var(--NavBarHeight) * 1.5);
+    background-color: #000;
+
+    z-index: 4311;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .7fr .5fr;
+
+    padding-bottom: 1vh;
+}
+
+#footerListBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.footerList {
+    position: relative;
+    width: 20vw;
+    height: 100%;
+
+    padding: 1vh;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerList > .t {
+    font-family: "CLvetica";
+    font-size: calc(var(--footerFontSize) * 1.5);
+    color: #ffffff4d;
+}
+
+.footerList > .i {
+    font-family: "CLsans";
+    font-size: calc(var(--footerFontSize));
+    color: #ffffff33;
+
+    text-decoration: none;
+    transition: all .1s ease;}
+
+.footerList > .i:hover {
+    transform: scale(1.1);
+}
+
+#footerLogoBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    font-family: "CLsans";
+    color: #ffffff33;
+    font-size: var(--footerFontSize);
+
+    
+}
+
+#footerLogoBox > .txt {
+    position: relative;
+
+    overflow: hidden;
+    justify-self: end;
+}
+
+#footerLogoBox a {
+    color: #ffffff4d;
+    text-decoration: none;
+
+    transition: all .3s ease;
+}
+
+#footerLogoBox a:hover {
+    font-size: calc(var(--footerFontSize) * 1.1);
+}
+
+#footerLogoBox::before {
+    position: absolute;
+    width: 100%;
+    height: calc(var(--SeparatorHeight) / 2);
+    content: "";
+    left: 0;
+    top: 0;
+
+    background: linear-gradient(to right, transparent, #ffffff4d, transparent);
+}
+
+#footerLogo {
+    height: 75%;
+    aspect-ratio: 1;
+    background: url("../assets/svg/CLquadrato.svg") no-repeat center;
+    opacity: 30%;
+}

@@ -1,0 +1,5 @@
+@media only screen and (orientation: portrait) {
+    .footerList {
+        width: 50vw;
+    }
+}

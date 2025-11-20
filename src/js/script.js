@@ -193,3 +193,7 @@ function modeSelectorStyler() {
 }
 
 //!SECTION
+
+//SECTION - Footer
+
+//!SECTION

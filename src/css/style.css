@@ -1,9 +1,6 @@
 
 /*NOTE - HTML & body */
 html {
-    --scX: 1;
-    --scY: 1;
-
     --NavBarHeight: 15vh;
     --NavBarPadding: 2vw;
     --NavBarLogoSize: 50vh;
@@ -28,6 +25,8 @@ html {
     --loaderTitleFontSize: 4.6vh;
     --loaderLogoSize: 18vh;
     --loaderProgressBarWidth: 30%;
+
+    --footerFontSize: 1.4vh;
     
     --CLcolor1: #3dc1dc;
     --CLcolor2: #fa7605;
@@ -55,6 +54,8 @@ body {
     margin: 0;
 
     background: #000;
+
+    user-select: none;
 }
 
 /*NOTE - AppMain */
@@ -74,8 +75,8 @@ body {
     position: fixed;
     width: var(--ModeSelectorWidth);
     aspect-ratio: 16/9;
-    bottom: 10px;
-    right: 10px;
+    bottom: 1vh;
+    right: 1vh;
     border-radius: 100vw;
     background: color-mix(in srgb, var(--CLcolor1) 60%, transparent);
     backdrop-filter: blur(30px);
@@ -91,8 +92,6 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-
-    transition: all .2s ease;
 }
 
 #modeSelector.selected {
