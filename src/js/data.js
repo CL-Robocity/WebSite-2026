@@ -38,7 +38,7 @@ export const dataNextEvent = [
 
 export const dataTimerSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <circle class="eventBg" cx="256" cy="256" r="calc(256 - 25 / 2)"/> <circle class="eventTimerStroke" cx="256" cy="256" r="calc(256 - 25 / 2)"/></svg>'
 
-import { EventTimerHandler } from "./script"
+import { EventTimerHandler } from "./script.js"
 export const dataIntervalsHandler = [
     {id: "homeEventUI", fun: EventTimerHandler, ms: 1000, interval: null}
 ]
