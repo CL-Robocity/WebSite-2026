@@ -12,6 +12,10 @@
         --NavBarFontSize: 18px;
         --NavBarPadding: 40px;
     }
+
+    .page {
+        padding: calc(var(--NavBarHeight) / 3);
+    }
 }
 
 @media only screen and (orientation: portrait) {
@@ -34,5 +38,27 @@
 
     #modeSelector {
         z-index: 7;
+    }
+
+    .page {
+        padding: 0;
+    }
+}
+
+@media only screen and (orientation: portrait) and (min-height: 800px) {
+    html {
+        --NavBarHeight: 100px;
+        --NavBarFontSize: 24px;
+
+        --HomeTitlePadding: 7vw;
+        --HomeSubtitleFontSize: 4vw;
+        --HomeButtonsPadding: 4vw;
+        --HomeButtonsSize: 1.7vh;
+    }
+
+    #modeBall {
+        height: calc(100% - 1.2vw);
+        left: .6vw;
+        top: .6vw;
     }
 }

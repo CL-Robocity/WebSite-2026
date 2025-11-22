@@ -1,5 +1,5 @@
 @media only screen and (max-width: 1270px) and (orientation: landscape) {
-    #homeBox {
+    #homeFirstPageBox {
         height: calc(100vh - var(--NavBarHeight));
     }
 
@@ -9,7 +9,7 @@
 }
 
 @media only screen and (orientation: portrait) {
-    #homeBox {
+    #homeBox > .first {
         height: calc(100svh - var(--NavBarHeight));
 
         grid-template-columns: 1fr;
@@ -60,4 +60,38 @@
 
         top: calc(50% - calc(var(--HomeImgSize) / 30));
     }
+
+    #homeEventTitle {
+        text-align: center;
+        padding: 0 2vh;
+        box-sizing: border-box;
+    }
+
+    #homeEventUI {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+
+        padding: 2vh;
+    }
 }
+
+
+@media only screen and (orientation: portrait) and (min-height: 800px) {
+    #homeImgContainer > .arrow {
+        --arrowDim: 7vw;
+    }
+
+    #homeEventUI {
+        padding: 2vh 10vw;
+    }
+
+    .eventTimer {
+        height: 85%;
+        aspect-ratio: 1;
+    }
+
+    .eventTimer > svg {
+        max-height: 100%;
+    }
+}
+

@@ -22,8 +22,6 @@ export const dataPropList = [
     "--ModeSelectorWidth"
 ]
 
-export const dataResList = [1920, 2560, 3840, 7680]
-
 export const dataHomeImgList = [
     "./src/assets/img/img1.jpg",
     "./src/assets/img/img2.jpg",
@@ -31,3 +29,11 @@ export const dataHomeImgList = [
     "./src/assets/img/img4.jpg",
     "./src/assets/img/img5.jpg"
 ]
+
+export const dataNextEvent = [
+    [{n: "Qualificazione Venezia&nbsp;-&nbsp;Mestre", date: new Date(2026, 1, 6, 8, 30, 0), l: "Mestre, Italia"}],
+    [{n: "Italy Championship", date: new Date(2026, 2, 5, 8, 30, 0), l: "Cesenatico, Italia"}],
+    ["d", "h", "m", "s"]
+]
+
+export const dataTimerSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <circle class="eventBg" cx="256" cy="256" r="calc(256 - 25 / 2)"/> <circle class="eventTimerStroke" cx="256" cy="256" r="calc(256 - 25 / 2)"/></svg>'

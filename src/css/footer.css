@@ -38,13 +38,13 @@
 .footerList > .t {
     font-family: "CLvetica";
     font-size: calc(var(--footerFontSize) * 1.5);
-    color: #ffffff4d;
+    color: var(--W1);
 }
 
 .footerList > .i {
     font-family: "CLsans";
     font-size: calc(var(--footerFontSize));
-    color: #ffffff33;
+    color: var(--W2);
 
     text-decoration: none;
     transition: all .1s ease;}
@@ -64,7 +64,7 @@
     justify-content: space-between;
 
     font-family: "CLsans";
-    color: #ffffff33;
+    color: var(--W2);
     font-size: var(--footerFontSize);
 
     
@@ -78,7 +78,7 @@
 }
 
 #footerLogoBox a {
-    color: #ffffff4d;
+    color: var(--W1);
     text-decoration: none;
 
     transition: all .3s ease;
@@ -96,7 +96,7 @@
     left: 0;
     top: 0;
 
-    background: linear-gradient(to right, transparent, #ffffff4d, transparent);
+    background: linear-gradient(to right, transparent, var(--W1), transparent);
 }
 
 #footerLogo {

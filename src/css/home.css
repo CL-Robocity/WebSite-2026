@@ -1,6 +1,10 @@
 #homeBox {
     position: relative;
     width: 100%;
+    height: max-content;
+}
+
+#homeBox > .first {
     height: calc(100vh - var(--NavBarHeight) + var(--SeparatorHeight));
 
     background: var(--B1);
@@ -230,4 +234,127 @@
     }
 }
 
-/*"\f2b5"*/
+#homeBox > .second {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--B2);
+}
+
+#homeEventBox {
+    position: relative;
+    width: 100%;
+    height: 80%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content max-content 1fr;
+}
+
+#homeEventTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "CLvetica";
+    font-size: calc(var(--HomeSubtitleFontSize) * 2);
+    color: var(--CLcolorMain);
+    animation: glowAnim infinite alternate ease 4s;
+
+    margin-bottom: 2vh;
+}
+
+#homeEventSubtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "CLvetica";
+    color: #fff;
+    font-size: calc(var(--HomeSubtitleFontSize) / 1.5 );
+}
+
+#homeEventUI {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 2vh 10vh;
+    box-sizing: border-box;
+}
+
+.eventTimer {
+    position: relative;
+    width: 60%;
+    aspect-ratio: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+}
+
+.eventBg {
+    fill: none;
+    stroke: var(--B3);
+    
+    stroke-width: 25px;
+}
+
+.eventTimerStroke {
+    fill: none;
+    stroke: var(--CLcolorMain);
+    transform: rotateZ(-90deg);
+    transform-origin: center;
+
+    --c: calc(2 * (256 - 25 / 2) * 3.1415);
+
+    stroke-dasharray: var(--sweep) var(--c);
+    stroke-linecap: round;
+    stroke-width: 25px;
+
+    transition: all .1s ease;
+}
+
+.eventTimerLabels {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.eventTimerLabels > .n {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "CLvetica";
+    color: var(--CLcolorMain);
+    font-size: calc(var(--HomeSubtitleFontSize) * 2);
+}
+
+.eventTimerLabels > .nL {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "CLsans";
+    color: #fff;
+    font-size: calc(var(--HomeSubtitleFontSize) / 1.5);
+}

@@ -68,52 +68,6 @@ function barSelectionObserver() {
 
 //!SECTION
 
-//SECTION - HomeScript
-
-import { dataHomeImgList as homeImgList } from "./data.js"
-
-const arrowL = document.querySelector("#homeImgContainer > .l")
-const arrowR = document.querySelector("#homeImgContainer > .r")
-const homeImgWrapper = document.getElementById("homeImgWrapper")
-let currentPic = 0;
-
-function insertImg(m) {
-    for (let i = 0; i < 4; i++){
-        const str = `url(${homeImgList[i+4*m]})`
-        document.querySelector(`#homeImgWrapper > .img.i${i}`).style.backgroundImage = str
-    }
-}
-
-arrowL.addEventListener("click", () => {
-    currentPic = currentPic != 0 ? currentPic - 1 : 3;
-    homeImgSlide()
-})
-
-arrowR.addEventListener("click", () => {
-    currentPic = currentPic != 3 ? currentPic + 1 : 0;
-    homeImgSlide()
-})
-
-
-function homeImgSlide() {
-    document.querySelector("#homeImgWrapper > .img.selected").classList.remove("selected")
-    document.querySelector(`#homeImgWrapper > .img.i${currentPic}`).classList.add("selected")
-    homeImgWrapper.style.transform = `translateX(-${25*currentPic}%)`
-}
-
-document.querySelector(".team.button").addEventListener("click", () => {scrollToElement("teamBox")})
-document.querySelector(".sponsors.button").addEventListener("click", () => {scrollToElement("sponsorBox")})
-
-//!SECTION
-
-//SECTION - Utiliy
-
-function roundTo(n, dec) {
-    return Math.round(n/dec)*dec
-}
-
-//!SECTION
-
 //SECTION - ModeSelector
 
 //consts
@@ -142,6 +96,9 @@ fetchMode()
 //Click Handler
 modeBall.addEventListener("click", () => {
     MODE = !MODE;
+
+    //Clear Interval
+    clearInterval(EventInterval)
 
     //Url Handler
     const url = new URL(window.location)
@@ -190,6 +147,108 @@ function modeSelectorStyler() {
         modeSelector.classList.remove("selected")
         modeSelector.style.boxShadow = "0px 8px 32px 0 #0000005e, inset 0 4px 5px color-mix(in srgb, var(--CLcolor1) 60%, transparent), inset 0 -4px 5px color-mix(in srgb, var(--CLcolor1) 60%, transparent)"
     }
+}
+
+//!SECTION
+
+//SECTION - HomeScript
+
+import { dataHomeImgList as homeImgList } from "./data.js"
+
+const arrowL = document.querySelector("#homeImgContainer > .l")
+const arrowR = document.querySelector("#homeImgContainer > .r")
+const homeImgWrapper = document.getElementById("homeImgWrapper")
+let currentPic = 0;
+
+function insertImg(m) {
+    for (let i = 0; i < 4; i++){
+        const str = `url(${homeImgList[i+4*m]})`
+        document.querySelector(`#homeImgWrapper > .img.i${i}`).style.backgroundImage = str
+    }
+}
+
+arrowL.addEventListener("click", () => {
+    currentPic = currentPic != 0 ? currentPic - 1 : 3;
+    homeImgSlide()
+})
+
+arrowR.addEventListener("click", () => {
+    currentPic = currentPic != 3 ? currentPic + 1 : 0;
+    homeImgSlide()
+})
+
+
+function homeImgSlide() {
+    document.querySelector("#homeImgWrapper > .img.selected").classList.remove("selected")
+    document.querySelector(`#homeImgWrapper > .img.i${currentPic}`).classList.add("selected")
+    homeImgWrapper.style.transform = `translateX(-${25*currentPic}%)`
+}
+
+document.querySelector(".team.button").addEventListener("click", () => {scrollToElement("teamBox")})
+document.querySelector(".sponsors.button").addEventListener("click", () => {scrollToElement("sponsorBox")})
+
+//NOTE - EventTimer
+import { dataNextEvent, dataTimerSVG } from "./data.js"
+const homeEventTitle = document.getElementById("homeEventTitle")
+const homeEventSubtitle = document.getElementById("homeEventSubtitle")
+const homeEventUI = document.getElementById("homeEventUI")
+
+let EventInterval
+
+const labelsTXT = ["Giorni", "Ore", "Minuti", "Secondi"]
+function EventTimerCreator() {
+    const event = dataNextEvent[MODE].filter(a => a.date > Date.now())[0]
+    homeEventTitle.innerHTML = event.n
+    const formattedDate = event.date.toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric"}).replace(/(\d+\s)(\p{L})/u, (_, g1, g2) => g1 + g2.toUpperCase());
+    homeEventSubtitle.innerHTML = `${formattedDate} ● ${event.l}`
+
+    dataNextEvent[2].forEach((s, idx) => {
+        const elm = document.createElement("div")
+        elm.classList.add("eventTimer")
+        homeEventUI.appendChild(elm)
+        elm.innerHTML = dataTimerSVG
+        elm.querySelector(`.eventTimerStroke`).classList.add(s)
+
+        const labels = document.createElement("div")
+        labels.classList.add("eventTimerLabels")
+        labels.classList.add(s)
+        
+        const n = document.createElement("div")
+        n.classList.add("n")
+
+        const nL = document.createElement("div")
+        nL.classList.add("nL")
+        nL.innerHTML = labelsTXT[idx]
+
+        labels.appendChild(n)
+        labels.appendChild(nL)
+
+        elm.appendChild(labels)
+    })
+
+    EventInterval = setInterval(() => {EventTimerHandler(event)}, 1000)
+}
+EventTimerCreator()
+
+const timerMax = [90, 24, 60, 60], converter = "1000 * 60 * 60 * 24"
+function EventTimerHandler(event) {
+    let dD = event.date - Date.now()
+    dataNextEvent[2].forEach((s, idx) => {
+        const conv = eval(converter.slice(0, converter.length - 5*idx))
+        const n = Math.floor(dD / conv)
+        document.querySelector(`.eventTimerStroke.${s}`).style.strokeDasharray = `calc(var(--c) * ${n / timerMax[idx]}) var(--c)`
+        dD -= n * conv
+
+        document.querySelector(`.eventTimerLabels.${s} .n`).innerHTML = n
+    })
+}
+
+//!SECTION
+
+//SECTION - Utiliy
+
+function roundTo(n, dec) {
+    return Math.round(n/dec)*dec
 }
 
 //!SECTION
