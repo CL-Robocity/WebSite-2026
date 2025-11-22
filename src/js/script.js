@@ -193,14 +193,15 @@ const homeEventTitle = document.getElementById("homeEventTitle")
 const homeEventSubtitle = document.getElementById("homeEventSubtitle")
 const homeEventUI = document.getElementById("homeEventUI")
 
+const currentEvent = dataNextEvent[MODE].filter(a => a.date > Date.now())[0]
+
 let EventInterval
 
 const labelsTXT = ["Giorni", "Ore", "Minuti", "Secondi"]
 function EventTimerCreator() {
-    const event = dataNextEvent[MODE].filter(a => a.date > Date.now())[0]
-    homeEventTitle.innerHTML = event.n
-    const formattedDate = event.date.toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric"}).replace(/(\d+\s)(\p{L})/u, (_, g1, g2) => g1 + g2.toUpperCase());
-    homeEventSubtitle.innerHTML = `${formattedDate} ● ${event.l}`
+    homeEventTitle.innerHTML = currentEvent.n
+    const formattedDate = currentEvent.date.toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric"}).replace(/(\d+\s)(\p{L})/u, (_, g1, g2) => g1 + g2.toUpperCase());
+    homeEventSubtitle.innerHTML = `${formattedDate} ● ${currentEvent.l}`
 
     dataNextEvent[2].forEach((s, idx) => {
         const elm = document.createElement("div")
@@ -225,14 +226,12 @@ function EventTimerCreator() {
 
         elm.appendChild(labels)
     })
-
-    EventInterval = setInterval(() => {EventTimerHandler(event)}, 1000)
 }
 EventTimerCreator()
 
 const timerMax = [90, 24, 60, 60], converter = "1000 * 60 * 60 * 24"
-function EventTimerHandler(event) {
-    let dD = event.date - Date.now()
+export function EventTimerHandler() {
+    let dD = currentEvent.date - Date.now()
     dataNextEvent[2].forEach((s, idx) => {
         const conv = eval(converter.slice(0, converter.length - 5*idx))
         const n = Math.floor(dD / conv)
@@ -247,9 +246,38 @@ function EventTimerHandler(event) {
 
 //SECTION - Utiliy
 
+
+//NOTE - RoundTo
 function roundTo(n, dec) {
     return Math.round(n/dec)*dec
 }
+
+//NOTE - IntervalHandler
+import { dataIntervalsHandler } from "./data.js"
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        const target = dataIntervalsHandler.find(t => t.id == entry.target.id)
+
+        if (!target) return
+
+        if (entry.isIntersecting) {
+            target.fun()
+            target.interval = setInterval(target.fun, target.ms)
+            console.log("Started: " + target.id)
+        } else {
+            clearInterval(target.interval)
+            console.log("Cleared: " + target.id)
+        }
+
+    })
+}, {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+})
+
+dataIntervalsHandler.forEach((e) => {observer.observe(document.getElementById(e.id))})
 
 //!SECTION
 
