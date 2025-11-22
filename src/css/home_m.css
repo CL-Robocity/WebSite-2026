@@ -85,6 +85,10 @@
         padding: 2vh 10vw;
     }
 
+    #homeEventSubtitle {
+        margin-bottom: 0;
+    }
+
     .eventTimer {
         height: 85%;
         aspect-ratio: 1;
