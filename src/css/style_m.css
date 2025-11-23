@@ -16,6 +16,12 @@
     .page {
         padding: calc(var(--NavBarHeight) / 3);
     }
+
+    #modeBall {
+        height: calc(100% - 1.5vh);
+        left: .75vh;
+        top: .75vh;
+    }
 }
 
 @media only screen and (orientation: portrait) {

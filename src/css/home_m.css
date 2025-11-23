@@ -6,6 +6,10 @@
     #homeImgContainer {
         width: clamp(calc(var(--HomeImgSize) * 5/8), 80%, var(--HomeImgSize));
     }
+
+    #homeTitleBox {
+        padding: var(--HomeTitlePadding) calc(var(--HomeTitlePadding) / 2);
+    }
 }
 
 @media only screen and (orientation: portrait) {
@@ -34,6 +38,8 @@
     #homeImageBox {
         padding: 0 5vw;
         box-sizing: border-box;
+
+        overflow: hidden;
     }
 
     #homeTitleBox::after {
@@ -49,7 +55,10 @@
     }
 
     #homeImgContainer {
-        width: clamp(calc(var(--HomeImgSize) * 5/8), 80%, var(--HomeImgSize));
+        /*width: clamp(calc(var(--HomeImgSize) * 5/8), 80%, var(--HomeImgSize));*/
+        width: 90%;
+        max-width: 100%;
+        max-height: 90%;
     }
 
     #homeImgContainer > .arrow {
@@ -72,6 +81,10 @@
         grid-template-columns: repeat(2, 1fr);
 
         padding: 2vh;
+    }
+
+    .eventTimer  {
+        max-width: 200px;
     }
 }
 
