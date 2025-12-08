@@ -242,6 +242,52 @@ export function EventTimerHandler() {
     })
 }
 
+//NOTE SponsorsScript
+
+import { dataSponsorImgs } from "./data.js"
+const homeSponsorsUI = document.getElementById("homeSponsorsUI")
+let sponsorCurrentImg = 0
+
+function createSponsorElement() {
+    const elm = document.createElement("div")
+    elm.classList.add("sponsorSliderElement")
+
+    elm.style.backgroundImage = `url(${dataSponsorImgs[sponsorCurrentImg]})`
+    elm.style.transform = `translateX(${homeSponsorsUI.clientWidth + 1}px)`
+    elm.percentage = 100
+
+    homeSponsorsUI.appendChild(elm)
+    
+    sponsorCurrentImg = sponsorCurrentImg + 1 >= dataSponsorImgs.length ? 0 : sponsorCurrentImg + 1   
+
+    elm.start = () => {
+        elm.style.transform = `translateX(-200%)`
+    }
+
+    return elm
+}
+
+const aliveSponsors = []
+
+setInterval(() => {
+    const elm = createSponsorElement()
+    aliveSponsors.push(elm)
+
+    setTimeout(() => {elm.start()}, 100)
+
+    aliveSponsors.forEach((e) => {
+        if (e.getBoundingClientRect().left < -e.clientWidth) {
+            e.remove()
+        }
+    })
+}, 4000)
+
+window.addEventListener("resize", () => {
+    aliveSponsors.forEach((e) => {
+        e.remove()
+    })
+})
+
 //!SECTION
 
 //SECTION - Utiliy
