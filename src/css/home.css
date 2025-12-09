@@ -383,28 +383,54 @@
     background: var(--B2);
 }
 
-#homeSponsorsUI {
+#homesponsorSliderContainer {
     position: relative;
     width: 100%;
     height: 70%;
 
-    display: flex;
-    align-items: center;
+    overflow: hidden;
+}
+
+#homeSponsorsUI {
+    position: absolute;
+    width: 125%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+
+    place-items: center;
+
+    will-change: transform;
+    transition: trasform 1ms linear;
 
     overflow: hidden;
 }
 
 .sponsorSliderElement {
-    position: absolute;
-    width: 25%;
-    height: 100%;
-    max-width: 40vh;
+    width: fit-content;
+    height: fit-content;
+    max-height: 90%;
+    max-width: 90%;
 
-    border-radius: 3vw;
-    background-position: center;
-    background-size: 90%;
-    background-repeat: no-repeat;
+    border-radius: 2vh;
     background-color: var(--B3);
 
-    transition: transform 20s linear;
+    padding: 2vh;
+    box-sizing: border-box;
+
+    display: flex;
+    min-height: 0;
+    min-width: 0;
+
+    will-change: grid-column;
+    
+    filter: drop-shadow(.5vh .5vh .5vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent));
+}
+
+.sponsorSliderElement > img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }

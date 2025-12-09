@@ -246,47 +246,67 @@ export function EventTimerHandler() {
 
 import { dataSponsorImgs } from "./data.js"
 const homeSponsorsUI = document.getElementById("homeSponsorsUI")
+let maxSponsors, minP
 let sponsorCurrentImg = 0
+let sponsorTranslation = 0
 
-function createSponsorElement() {
-    const elm = document.createElement("div")
-    elm.classList.add("sponsorSliderElement")
+export function sponsorSliderHandler() {
+    homeSponsorsUI.style.transform = `translateX(-${sponsorTranslation}%)`
 
-    elm.style.backgroundImage = `url(${dataSponsorImgs[sponsorCurrentImg]})`
-    elm.style.transform = `translateX(${homeSponsorsUI.clientWidth + 1}px)`
-    elm.percentage = 100
+    sponsorTranslation+=.03
+    if ( sponsorTranslation + .03 >= minP) {
+        sponsorTranslation = 0
+        homeSponsorsUI.style.transform = `translateX(0%)`
 
-    homeSponsorsUI.appendChild(elm)
-    
-    sponsorCurrentImg = sponsorCurrentImg + 1 >= dataSponsorImgs.length ? 0 : sponsorCurrentImg + 1   
-
-    elm.start = () => {
-        elm.style.transform = `translateX(-200%)`
+        Array.from(homeSponsorsUI.children).forEach((elm, idx) => {
+            if (idx == 0) {
+                elm.remove()
+                createSponsorElement(maxSponsors)
+            } else {
+                elm.style.gridColumn = idx
+            }
+        })
     }
+}
+
+function sponsorSliderInit(e) {
+    homeSponsorsUI.innerHTML = ""
+    if (e.matches) {
+        homeSponsorsUI.style.width = "150%"
+        homeSponsorsUI.style.gridTemplateColumns = "repeat(3, 1fr)"
+        maxSponsors = 3
+    } else {
+        homeSponsorsUI.style.width = "125%"
+        homeSponsorsUI.style.gridTemplateColumns = "repeat(5, 1fr)"
+        maxSponsors = 5
+    }
+    minP = (1-1/maxSponsors)*100/(maxSponsors-1)
+
+    for (let i = 0; i < maxSponsors; i++) {
+        createSponsorElement(i+1)
+    }
+}
+sponsorSliderInit(window.matchMedia("(orientation: portrait)"))
+
+function createSponsorElement(i) {
+    const elm = document.createElement("div")
+    homeSponsorsUI.appendChild(elm)
+    elm.classList.add("sponsorSliderElement")
+    elm.style.gridColumn = i
+
+    const img = document.createElement("img")
+    img.src = dataSponsorImgs[sponsorCurrentImg]
+
+    elm.appendChild(img)
+    
+    sponsorCurrentImg = sponsorCurrentImg + 1 >= dataSponsorImgs.length ? 0 : sponsorCurrentImg + 1
 
     return elm
 }
 
-const aliveSponsors = []
 
-setInterval(() => {
-    const elm = createSponsorElement()
-    aliveSponsors.push(elm)
 
-    setTimeout(() => {elm.start()}, 100)
-
-    aliveSponsors.forEach((e) => {
-        if (e.getBoundingClientRect().left < -e.clientWidth) {
-            e.remove()
-        }
-    })
-}, 4000)
-
-window.addEventListener("resize", () => {
-    aliveSponsors.forEach((e) => {
-        e.remove()
-    })
-})
+window.matchMedia("(orientation: portrait)").addEventListener("change", (e) => {sponsorSliderInit(e)})
 
 //!SECTION
 

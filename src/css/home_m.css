@@ -86,6 +86,18 @@
     .eventTimer  {
         max-width: 200px;
     }
+
+    #homeBox > .third {
+        height: 25vh;
+    }
+
+    #homesponsorSliderContainer {
+        height: 50%;
+    }
+
+    .sponsorSliderElement {
+        padding: 1.3vh;
+    }
 }
 
 
