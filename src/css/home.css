@@ -239,7 +239,7 @@
 }
 
 #homeBox > .second {
-    height: 70vh;
+    height: max-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -251,7 +251,7 @@
 #homeEventBox {
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 50vh;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -374,7 +374,7 @@
 }
 
 #homeBox > .third {
-    height: 45vh;
+    height: max-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -386,7 +386,7 @@
 #homesponsorSliderContainer {
     position: relative;
     width: 100%;
-    height: 70%;
+    height: 25vh;
 
     overflow: hidden;
 }

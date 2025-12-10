@@ -261,7 +261,7 @@ body {
 .page {
     position: relative;
     width: 100%;
-    height: 100px;
+    height: max-content;
 
     padding: calc(var(--NavBarHeight) / 2);
     box-sizing: border-box;
@@ -281,6 +281,7 @@ body {
 }
 
 .pageTitle {
+    height: max-content;
     padding: 1.5vh 3vh;
     border: .35vh var(--CLcolorMain) solid;
     border-radius: 100vh;
