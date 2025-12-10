@@ -1,7 +1,9 @@
 @media only screen and (orientation: portrait) {
     #barBox {
         padding: 0 10px;
-        grid-template-columns: 1fr max-content;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
     }
 
     #barWrapper {

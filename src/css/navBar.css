@@ -9,7 +9,7 @@
     z-index: 10;
 
     display: grid;
-    grid-template-columns: var(--NavBarLogoSize) 1fr;
+    grid-template-columns: max-content 1fr;
     grid-template-rows: 1fr;
 
     padding: 0 var(--NavBarPadding);
@@ -31,8 +31,8 @@
 
 #barLogo {
     position: relative;
-    width: calc(100% - var(--NavBarLogoMargin) * 2);
     height: calc(100% - var(--NavBarLogoMargin) * 2);
+    aspect-ratio: 3.6;
     
     margin: var(--NavBarLogoMargin) 0;
     object-fit: contain;

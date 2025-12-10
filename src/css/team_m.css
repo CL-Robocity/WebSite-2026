@@ -1,0 +1,18 @@
+@media only screen and (orientation: portrait) {
+    #teamBox > .first {
+        height: 90vh;
+    }
+
+    .teamMember {
+        height: 70%;
+        min-width: 50vw;
+    }
+
+    #teamMembersContainer > .arrow.l {
+        left: -30vw;
+    }
+
+    #teamMembersContainer > .arrow.r {
+        right: -30vw;
+    }
+}

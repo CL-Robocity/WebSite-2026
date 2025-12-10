@@ -87,8 +87,12 @@
         max-width: 200px;
     }
 
+    #homeBox > .second {
+        height: 70vh;
+    }
+
     #homeBox > .third {
-        height: 25vh;
+        height: 30vh;
     }
 
     #homesponsorSliderContainer {

@@ -81,7 +81,7 @@
 }
 
 .teamMember > .teamImg {
-    background-position: center;
+    background-position: center bottom;
     background-size: contain;
     background-repeat: no-repeat;
 }
