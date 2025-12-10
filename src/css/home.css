@@ -136,7 +136,7 @@
 
 #homeImgContainer {
     position: relative;
-    width: clamp(10px, var(--HomeImgSize), 65%);
+    width: clamp(10px, var(--HomeImgSize), 70%);
     aspect-ratio: 4/3;
 
     border: var(--CLcolorMain) 3px solid;

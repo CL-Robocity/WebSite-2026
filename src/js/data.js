@@ -50,8 +50,33 @@ export const dataSponsorImgs = [
 
 export const dataTimerSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <circle class="eventBg" cx="256" cy="256" r="calc(256 - 25 / 2)"/> <circle class="eventTimerStroke" cx="256" cy="256" r="calc(256 - 25 / 2)"/></svg>'
 
-import { EventTimerHandler, sponsorSliderHandler } from "./script.js"
+export const dataTeamMembers = [
+    [ //FLL
+
+    ],
+    [ //FTC
+        {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
+        {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
+        {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
+        {name: "Peru1", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
+        {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
+        {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
+        {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
+        {name: "Peru1", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
+        {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
+        {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
+        {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
+        {name: "Peru1", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
+        {name: "Peru2", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
+        {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
+        {name: "Peru1", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"}
+    ]
+]
+
+import { EventTimerHandler, sponsorSliderHandler, scrollFetchPosition } from "./script.js"
 export const dataIntervalsHandler = [
     {id: "homeEventUI", fun: EventTimerHandler, ms: 1000, interval: null},
-    {id: "homeSponsorsUI", fun: sponsorSliderHandler, ms: 10, interval: null}
+    {id: "homeSponsorsUI", fun: sponsorSliderHandler, ms: 10, interval: null},
+    {id: "teamMembersContainer", fun: () => {scrollFetchPosition(1)}, ms: 5000, interval: null}
 ]
+

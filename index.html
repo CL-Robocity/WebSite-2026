@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/style.css">
-    <link rel="stylesheet" href="./src/css/style_m.css">
-    <link rel="stylesheet" href="./src/css/navBar.css">
-    <link rel="stylesheet" href="./src/css/navBar_m.css">
-    <link rel="stylesheet" href="./src/css/home.css">
-    <link rel="stylesheet" href="./src/css/home_m.css">
-    <link rel="stylesheet" href="./src/css/team.css">
-    <link rel="stylesheet" href="./src/css/footer.css">
-    <link rel="stylesheet" href="./src/css/footer_m.css">
-    <link rel="icon" href="./src/assets/svg/CLquadratoFLL.svg" type="image/X-icon">
-    <script src="./src/js/loadingScreen.js" defer></script>
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/src/css/style_m.css">
+    <link rel="stylesheet" href="/src/css/navBar.css">
+    <link rel="stylesheet" href="/src/css/navBar_m.css">
+    <link rel="stylesheet" href="/src/css/home.css">
+    <link rel="stylesheet" href="/src/css/home_m.css">
+    <link rel="stylesheet" href="/src/css/team.css">
+    <link rel="stylesheet" href="/src/css/footer.css">
+    <link rel="stylesheet" href="/src/css/footer_m.css">
+    <link rel="icon" href="/src/assets/svg/CLquadratoFLL.svg" type="image/X-icon">
+    <script type="module" src="/src/js/main.js" defer></script>
     <!-- <script src="./src/js/viewPortAdapter.js" type="module"></script> -->
-    <script src="./src/js/script.js" type="module" defer></script>
-    <script src="./src/js/particles.js" defer></script>
-    <script src="./src/js/mobile.js" type="module" defer></script>
     <title>CL-Robocity</title>
 </head>
 <body>
@@ -110,9 +107,9 @@
                     <div id="homeImgContainer">
                         <div id="homeImgWrapper">
                             <div class="img i0 selected"></div>
-                            <div class="img i1"></div>
-                            <div class="img i2"></div>
-                            <div class="img i3"></div>
+                            <div class="img i1" loading="lazy"></div>
+                            <div class="img i2" loading="lazy"></div>
+                            <div class="img i3" loading="lazy"></div>
                         </div>
 
                         <div class="arrow l">➜</div>
@@ -142,7 +139,8 @@
                 <div class="pageTitle">Team</div>
                 <div id="teamMembersBox">
                     <div id="teamMembersContainer">
-                        <div class="teamMember"></div>
+                        <div class="arrow l">➜</div>
+                        <div class="arrow r">➜</div>
                     </div>
                 </div>
             </div>

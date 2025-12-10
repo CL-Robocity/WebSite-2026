@@ -296,6 +296,7 @@ function createSponsorElement(i) {
 
     const img = document.createElement("img")
     img.src = dataSponsorImgs[sponsorCurrentImg]
+    img.loading = "lazy"
 
     elm.appendChild(img)
     
@@ -308,6 +309,64 @@ function createSponsorElement(i) {
 
 window.matchMedia("(orientation: portrait)").addEventListener("change", (e) => {sponsorSliderInit(e)})
 
+//!SECTION
+
+//SECTION - TeamScript
+
+import { dataTeamMembers } from "./data.js"
+const teamMembersContainer = document.getElementById("teamMembersContainer")
+
+const members = dataTeamMembers[MODE], mCount = members.length
+const kx = 60, kz = 20
+
+
+//NOTE TeamUICreator
+function TeamUICreator() {
+    const defaultTheta = 2*Math.PI / mCount
+    for (let i = 0; i < mCount; i++) {
+        const elm = document.createElement("div")
+        elm.classList.add("teamMember")
+        elm.id = `teamP${i}`
+
+        const img = document.createElement("div")
+        img.classList.add("teamImg")
+        img.style.backgroundImage = `url(${members[i].img})`
+        elm.appendChild(img)
+
+        const name = document.createElement("div")
+        name.classList.add("teamName")
+        name.innerHTML = members[i].name
+        elm.appendChild(name)
+
+        const role = document.createElement("div")
+        role.classList.add("teamRole")
+        role.innerHTML = members[i].role
+        elm.appendChild(role)
+
+        const txt = document.createElement("div")
+        txt.classList.add("teamTxt")
+        txt.innerHTML = members[i].txt
+        elm.appendChild(txt)
+        elm.style.transform = `perspective(50vh) translateZ(${(Math.sin(defaultTheta*i+Math.PI/2)-1)*kz}vw) translateX(${Math.cos(defaultTheta*i+Math.PI/2)*kx}vw)`
+        
+        teamMembersContainer.appendChild(elm)
+    }
+    scrollFetchPosition(0)
+}
+TeamUICreator()
+
+export function scrollFetchPosition(dir) {
+    const defaultTheta = 2*Math.PI / mCount
+    Array.from(teamMembersContainer.children).filter((e) => {if (e.id) return e}).forEach((e) => {
+        let id = parseInt(e.id.replace("teamP", ""))
+        id += dir
+        id = id >= 0 ? id <= mCount - 1 ? id : 0 : mCount - 1
+
+        e.style.zIndex = `${parseInt((Math.sin(defaultTheta*id+Math.PI/2)-1)*100)+1000}`
+        e.style.transform = `perspective(50vh) translateZ(${(Math.sin(defaultTheta*id+Math.PI/2)-1)*kz}vw) translateX(${Math.cos(defaultTheta*id+Math.PI/2)*kx}vw)`
+        e.id = `teamP${id}`
+    })
+}
 //!SECTION
 
 //SECTION - Utiliy

@@ -7,6 +7,8 @@
     justify-content: center;
     align-items: center;
     background-color: var(--B1);
+
+    overflow: hidden;
 }
 
 #teamMembersBox {
@@ -22,16 +24,122 @@
 #teamMembersContainer {
     position: relative;
     width: 25%;
+    max-width: 35vh;
     height: 90%;
 
-    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#teamMembersContainer > .arrow {
+    position: absolute;
+    width: 6vh;
+    aspect-ratio: 1;
+
+    color: color-mix(in srgb, var(--CLcolorMain) 80%, transparent);
+    font-size: 3.5vh;
+
+    border-radius: 100vh;
+    backdrop-filter: blur(10px);
+    background: #00000077;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+#teamMembersContainer > .arrow.l {
+    left: -7vh;
+    transform: rotate(180deg);
+}
+
+#teamMembersContainer > .arrow.r {
+    right: -7vh;
+    /*transform: translateY(-2%);*/
 }
 
 .teamMember {
+    position: absolute;
     width: 100%;
     height: 100%;
 
-    background-color: lime;
+    border-radius: 3vh;
+    background: var(--B2);
+    border: 1px solid color-mix(in srgb, var(--CLcolorMain) 80%, transparent);
+    filter: drop-shadow(0 0 0vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent)) blur(5px);
 
-    transform: perspective(500px) translateZ(-141px) translateX(141px);
+    padding: 2vh;
+    box-sizing: border-box;
+    transition: all .3s ease;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr .3fr .2fr .8fr;
+}
+
+.teamMember > .teamImg {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamMember > .teamName {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    color: #fff;
+    font-size: 3vh;
+    font-family: "CLvetica";
+}
+
+.teamMember > .teamRole {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+
+    color: var(--CLcolorMain);
+    font-size: 1.5vh;
+    font-family: "CLvetica";
+}
+
+.teamMember > .teamTxt {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+
+    color: var(--B4);
+    font-size: 1.8vh;
+    font-family: "CLsans";
+}
+
+.teamMember > .teamImg::after {
+    position: relative;
+    display: block;
+
+    left: 0;
+    bottom: -100%;
+
+    width: 100%;
+    height: var(--SeparatorHeight);
+    min-height: 1px;
+
+    content: "";
+    
+    background: linear-gradient(to right, transparent, var(--CLcolorMain), transparent);
+    opacity: 50%;
+}
+
+.teamMember#teamP0 {
+    border-width: 2px;
+    filter: drop-shadow(0 0 .5vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent)) blur(0px);
 }

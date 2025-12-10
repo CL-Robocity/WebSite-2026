@@ -17,12 +17,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "vite": "^7.2.1"
-  },
   "dependencies": {
     "express": "^5.1.0",
     "path": "^0.12.7",
     "url": "^0.11.4"
+  },
+  "devDependencies": {
+    "vite": "^7.2.7"
   }
 }
