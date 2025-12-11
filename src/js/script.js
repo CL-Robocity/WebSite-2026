@@ -269,25 +269,6 @@ export function sponsorSliderHandler() {
     }
 }
 
-function sponsorSliderInit(e) {
-    homeSponsorsUI.innerHTML = ""
-    if (e.matches) {
-        homeSponsorsUI.style.width = "150%"
-        homeSponsorsUI.style.gridTemplateColumns = "repeat(3, 1fr)"
-        maxSponsors = 3
-    } else {
-        homeSponsorsUI.style.width = "125%"
-        homeSponsorsUI.style.gridTemplateColumns = "repeat(5, 1fr)"
-        maxSponsors = 5
-    }
-    minP = (1-1/maxSponsors)*100/(maxSponsors-1)
-
-    for (let i = 0; i < maxSponsors; i++) {
-        createSponsorElement(i+1)
-    }
-}
-sponsorSliderInit(window.matchMedia("(orientation: portrait)"))
-
 function createSponsorElement(i) {
     const elm = document.createElement("div")
     homeSponsorsUI.appendChild(elm)
@@ -305,24 +286,18 @@ function createSponsorElement(i) {
     return elm
 }
 
-
-
-window.matchMedia("(orientation: portrait)").addEventListener("change", (e) => {sponsorSliderInit(e)})
-
 //!SECTION
 
 //SECTION - TeamScript
 
-import { dataTeamMembers } from "./data.js"
+import { dataTeamMembers, dataTeamConst } from "./data.js"
 const teamMembersContainer = document.getElementById("teamMembersContainer")
 
 const members = dataTeamMembers[MODE], mCount = members.length
-const kx = 60, kz = 20
-
+let teamConsts = dataTeamConst[0]
 
 //NOTE TeamUICreator
 function TeamUICreator() {
-    const defaultTheta = 2*Math.PI / mCount
     for (let i = 0; i < mCount; i++) {
         const elm = document.createElement("div")
         elm.classList.add("teamMember")
@@ -347,7 +322,6 @@ function TeamUICreator() {
         txt.classList.add("teamTxt")
         txt.innerHTML = members[i].txt
         elm.appendChild(txt)
-        elm.style.transform = `perspective(50vh) translateZ(${(Math.sin(defaultTheta*i+Math.PI/2)-1)*kz}vw) translateX(${Math.cos(defaultTheta*i+Math.PI/2)*kx}vw)`
         
         teamMembersContainer.appendChild(elm)
     }
@@ -362,15 +336,17 @@ export function scrollFetchPosition(dir) {
         id += dir
         id = id >= 0 ? id <= mCount - 1 ? id : 0 : mCount - 1
 
-        e.style.zIndex = `${parseInt((Math.sin(defaultTheta*id+Math.PI/2)-1)*100)+1000}`
-        e.style.transform = `perspective(50vh) translateZ(${(Math.sin(defaultTheta*id+Math.PI/2)-1)*kz}vw) translateX(${Math.cos(defaultTheta*id+Math.PI/2)*kx}vw)`
+        e.style.zIndex = `${parseInt((Math.sin(defaultTheta*id+Math.PI/2)+teamConsts.kz)*100)+1000}`
+        e.style.transform = `perspective(50vh) 
+                                translateY(${(Math.sin(defaultTheta*id+teamConsts.a)+teamConsts.ky)*teamConsts.y}vw) 
+                                translateZ(${(Math.sin(defaultTheta*id+teamConsts.a)+teamConsts.kz)*teamConsts.z}vw) 
+                                translateX(${(Math.cos(defaultTheta*id+teamConsts.a)+teamConsts.kx)*teamConsts.x}vw)`
         e.id = `teamP${id}`
     })
 }
 //!SECTION
 
 //SECTION - Utiliy
-
 
 //NOTE - RoundTo
 function roundTo(n, dec) {
@@ -401,6 +377,32 @@ const observer = new IntersectionObserver((entries) => {
   rootMargin: '0px',
   threshold: 0.1
 })
+
+//NOTE DeviceConstHandler
+window.matchMedia("(orientation: portrait)").addEventListener("change", (e) => {DeviceConstHandler(e)})
+DeviceConstHandler(window.matchMedia("(orientation: portrait)"))
+function DeviceConstHandler(e) {
+    if (e.matches) {
+        homeSponsorsUI.style.width = "150%"
+        homeSponsorsUI.style.gridTemplateColumns = "repeat(3, 1fr)"
+        maxSponsors = 3
+        
+        teamConsts = dataTeamConst[1]
+    } else {
+        homeSponsorsUI.style.width = "125%"
+        homeSponsorsUI.style.gridTemplateColumns = "repeat(5, 1fr)"
+        maxSponsors = 5
+        
+        teamConsts = dataTeamConst[0]
+    }
+
+    //NOTE SponsorDeviceHandler
+    homeSponsorsUI.innerHTML = ""
+    minP = (1-1/maxSponsors)*100/(maxSponsors-1)
+    for (let i = 0; i < maxSponsors; i++) {
+        createSponsorElement(i+1)
+    }
+}
 
 dataIntervalsHandler.forEach((e) => {observer.observe(document.getElementById(e.id))})
 

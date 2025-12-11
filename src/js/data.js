@@ -52,25 +52,30 @@ export const dataTimerSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 
 
 export const dataTeamMembers = [
     [ //FLL
-
+        {name: "Max", img: "./src/assets/img/team1.png", role:"Costruttore", txt: "Mi chiedi un pezzo e te lo trovo (la maggior parte delle volte)"},
+        {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
+        {name: "ILMETS", img: "./src/assets/img/team1.png", role:"Costruttore", txt: "Sono pronto a fare qualcosa........... se qualcuno definisce cosa!"},
+        {name: "Zano", img: "./src/assets/img/team1.png", role:"Costruttore - Programmatore", txt: "quando non costruisco programmo, quando non programmo costruisco"}
     ],
     [ //FTC
         {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
         {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
         {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
-        {name: "Peru1", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
         {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
         {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
         {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
-        {name: "Peru1", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
         {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
         {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
         {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
-        {name: "Peru1", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
-        {name: "Peru2", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
+        {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
+        {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
         {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
-        {name: "Peru1", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"}
     ]
+]
+
+export const dataTeamConst = [
+    {kx: 0, ky: -1, kz: -1, x: 55, y: 20, z: 20, a: Math.PI/2},
+    {kx: -1, ky: 0, kz: -1, x: 100, y: 100, z: 0, a: 0},
 ]
 
 import { EventTimerHandler, sponsorSliderHandler, scrollFetchPosition } from "./script.js"

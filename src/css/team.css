@@ -14,18 +14,20 @@
 #teamMembersBox {
     position: relative;
     width: 100%;
-    height: 70vh;
+    height: 75vh;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
+
+    overflow: hidden;
 }
 
 #teamMembersContainer {
     position: relative;
     width: 25%;
     max-width: 35vh;
-    height: 90%;
+    height: 80%;
 
     display: flex;
     align-items: center;
@@ -69,7 +71,7 @@
     border-radius: 3vh;
     background: var(--B2);
     border: 1px solid color-mix(in srgb, var(--CLcolorMain) 80%, transparent);
-    filter: drop-shadow(0 0 0vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent)) blur(5px);
+    filter: drop-shadow(0 0 0vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent)) blur(5px) brightness(60%);
 
     padding: 2vh;
     box-sizing: border-box;
@@ -141,5 +143,5 @@
 
 .teamMember#teamP0 {
     border-width: 2px;
-    filter: drop-shadow(0 0 .5vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent)) blur(0px);
+    filter: drop-shadow(0 0 .5vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent)) blur(0px) brightness(100%);
 }

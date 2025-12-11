@@ -6,6 +6,11 @@
     .teamMember {
         height: 70%;
         min-width: 50vw;
+        scale: 80%;
+    }
+
+    .teamMember#teamP0 {
+        scale: 100%;
     }
 
     #teamMembersContainer > .arrow.l {
