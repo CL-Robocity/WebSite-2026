@@ -1,3 +1,9 @@
+@media only screen and (orientation: landscape) and (max-width: 1270px) {
+    .barList {
+        font-size: var(--SF2);
+    }
+}
+
 @media only screen and (orientation: portrait) {
     #barBox {
         padding: 0 10px;
@@ -54,6 +60,7 @@
     }
 
     .barList {
+        font-size: 3vh;
         margin: 8px 0;
     }
 
