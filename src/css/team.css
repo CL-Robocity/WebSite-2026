@@ -258,3 +258,7 @@
     grid-row-start: 1;
     grid-row-end: 4;
 }
+
+#teamSpecsBox  {
+        display: none;
+    }

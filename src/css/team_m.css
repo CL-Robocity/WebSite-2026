@@ -27,10 +27,6 @@
     .teamMember#teamP0 {
         scale: 100%;
     }
-
-    #teamSpecsBox  {
-        display: none;
-    }
 }
 
 @media only screen and (orientation: portrait) and (min-width: 600px) {
