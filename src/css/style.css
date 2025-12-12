@@ -3,16 +3,11 @@
 html {
     --NavBarHeight: 15vh;
     --NavBarPadding: 2vw;
-    --NavBarLogoSize: 50vh;
     --NavBarLogoMargin: 2vh;
-    --NavBarFontSize: 2vh;
-    --SeparatorHeight: 0.21vh;
+
+    --SeparatorHeight: 0.2vh;
     --ModeSelectorWidth: 11vh;
 
-    --HomeTitlePadding: 11vh;
-    --HomeSubtitleFontSize: 3.4vh;
-    --HomeButtonsPadding: 6.4vh;
-    --HomeButtonsSize: 2.6vh;
     --HomeImgSize: 50vw;
 
     --ParticleMaxCount: 8;
@@ -32,6 +27,14 @@ html {
     --CLcolor2: #fa7605;
     --CLcolorMain: var(--CLcolor1);
     --CLcontrast: #fff;
+
+    --FS0: 6vh;
+    --FS1: 4.5vh;
+    --FS2: 2.5vh;
+    --FS3: 2vh;
+    --FS4: 1.5vh;
+
+    --FS2b: clamp(1px, 2vw, 2.5vh);
 
     --B1: #0f0f0f;
     --B2: #141414;
@@ -258,13 +261,21 @@ body {
     margin-bottom: 1vh; 
 }
 
+/*NOTE Page*/
 .page {
     position: relative;
     width: 100%;
     height: max-content;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     padding: calc(var(--NavBarHeight) / 2);
     box-sizing: border-box;
+
+    overflow: hidden;
 }
 
 .page.s::after {
@@ -292,4 +303,28 @@ body {
     color: var(--CLcolorMain);
 
     margin-bottom: 2vh;
+}
+
+.pageBigTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-family: "CLvetica";
+    font-size: var(--FS0);
+    color: var(--CLcolorMain);
+    animation: glowAnim infinite alternate ease 4s;
+
+    margin-bottom: 2vh;
+}
+
+.pageSubTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "CLvetica";
+    color: #fff;
+    font-size: var(--FS3);
 }

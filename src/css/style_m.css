@@ -1,16 +1,12 @@
 @media only screen and (max-width: 1270px) and (orientation: landscape) {
     html {
         --NavBarHeight: 120px;
-        --HomeTitlePadding: 85px;
-        --HomeSubtitleFontSize: 30px;
-        --HomeImgSize: 800px;
-        --HomeButtonsSize: 18px;
         --ModeSelectorWidth: 100px;
+
         --loaderTitleFontSize: 35px;
         --loaderLogoSize: 150px;
+
         --NavBarLogoMargin: 20px;
-        --NavBarFontSize: 18px;
-        --NavBarPadding: 40px;
     }
 
     .page {
@@ -28,18 +24,19 @@
     html {
         --NavBarHeight: 80px;
         --NavBarLogoMargin: 10px;
-        --NavBarFontSize: 18px;
-
-        --HomeTitlePadding: 8vw;
-        --HomeSubtitleFontSize: 5vw;
-        --HomeButtonsPadding: 5vw;
-        --HomeButtonsSize: clamp(10px, 4vw, 24px);
-        --HomeImgSize: 800px;
 
         --ModeSelectorWidth: 70px;
 
         --loaderTitleFontSize: 30px;
         --loaderProgressBarWidth: 70%;
+
+        --FS0: 6vh;
+        --FS1: 4.5vh;
+        --FS2: 4vw;
+        --FS3: 2vh;
+        --FS4: 1.5vh;
+
+        --FS2b: 4vw;
     }
 
     #modeSelector {
@@ -51,15 +48,17 @@
     }
 }
 
-@media only screen and (orientation: portrait) and (min-height: 800px) {
+@media only screen and (orientation: portrait) and (min-width: 600px) {
     html {
         --NavBarHeight: 100px;
-        --NavBarFontSize: 24px;
 
-        --HomeTitlePadding: 7vw;
-        --HomeSubtitleFontSize: 4vw;
-        --HomeButtonsPadding: 4vw;
-        --HomeButtonsSize: 1.7vh;
+        --FS0: 6vh;
+        --FS1: 4.5vh;
+        --FS2: 2.5vh;
+        --FS3: 2vh;
+        --FS4: 1.5vh;
+
+        --FS2b: 4vw;
     }
 
     #modeBall {

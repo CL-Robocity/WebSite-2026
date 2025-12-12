@@ -1,39 +1,25 @@
-@media only screen and (max-width: 1270px) and (orientation: landscape) {
-    #homeFirstPageBox {
-        height: calc(100vh - var(--NavBarHeight));
-    }
-
-    #homeImgContainer {
-        width: clamp(calc(var(--HomeImgSize) * 5/8), 80%, var(--HomeImgSize));
-    }
-
-    #homeTitleBox {
-        padding: var(--HomeTitlePadding) calc(var(--HomeTitlePadding) / 2);
-    }
-}
-
 @media only screen and (orientation: portrait) {
     #homeBox > .first {
         height: calc(100svh - var(--NavBarHeight));
 
         grid-template-columns: 1fr;
-        grid-template-rows: minmax(max-content, 0.3fr) 1fr;
+        grid-template-rows: max-content 1fr;
+
+        padding-bottom: 0;
     }
 
     #homeTitleBox {
-        padding: calc(var(--HomeTitlePadding) / 2) 0;
+        padding: 0;
     }
 
     #homeTitle>.t {
-        font-size: calc(var(--HomeTitlePadding) * 1.8);
+        font-size: 14vw;
         align-self: center;
-
-        margin: 0;
     }
 
-    #homeButtons {
+    /* #homeButtons {
         align-items: center;
-    }
+    } */
 
     #homeImageBox {
         padding: 0 5vw;
@@ -43,53 +29,58 @@
     }
 
     #homeTitleBox::after {
-        position: absolute;
         width: 100vw;
         height: calc(var(--SeparatorHeight) / 2);
         top: 100%;
         right: 0;
 
-        content: "";
-
         background: linear-gradient(to right, transparent, var(--CLcolorMain), transparent);
     }
 
+    #homeImageBox{
+        padding: 0 calc(var(--NavBarHeight) / 2);
+    }
+
     #homeImgContainer {
-        /*width: clamp(calc(var(--HomeImgSize) * 5/8), 80%, var(--HomeImgSize));*/
-        width: 90%;
-        max-width: 100%;
-        max-height: 90%;
+        border-radius: 10vw 0;
     }
 
     #homeImgContainer > .arrow {
-        position: absolute;
-        --arrowDim: clamp(30px, var(--HomeSubtitleFontSize), 1000px);
-        width: var(--arrowDim);
-        height: var(--arrowDim);
-
-        top: calc(50% - calc(var(--HomeImgSize) / 30));
+        width: 10vw;
+        top: calc(50% - 5vw);
     }
 
     #homeEventBox {
         height: 60lvh;
     }
 
-    #homeEventTitle {
-        text-align: center;
-        padding: 0 2vh;
-        box-sizing: border-box;
-    }
-
     #homeEventUI {
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(2, 1fr);
 
-        padding: 2vh;
+        padding: 4vh 2vh 0 2vh;
+        row-gap: 4vh;
+        box-sizing: border-box;
     }
 
     .eventTimer  {
-        height: 85%;
-        aspect-ratio: 1;
+        width: unset;
+        height: 100%;
+        max-height: unset;
+
+        overflow: hidden;
+    }
+
+    .eventTimerLabels {
+        width: 100%;
+    }
+
+    .eventTimerLabels > .n {
+        font-size: 6vh;
+    }
+
+    .eventTimerLabels > .nL {
+        font-size: 2vh;
     }
 
     #homesponsorSliderContainer {
@@ -101,26 +92,27 @@
     }
 }
 
-@media only screen and (orientation: portrait) and (min-height: 800px) {
+@media only screen and (orientation: portrait) and (min-width: 600px) {
+    #homeTitleBox {
+        padding: 0 5vh;
+    }
+
+    #homeTitle>.t {
+        font-size: clamp(1px, 13vh, 14vw);
+        align-self: center;
+    }
+
+    #homeImageBox {
+        padding: calc(var(--NavBarHeight) / 2);
+    }
+
+    #homeImgContainer {
+        max-height: calc(100% - var(--NavBarHeight));
+    }
+
     #homeImgContainer > .arrow {
-        --arrowDim: 7vw;
-    }
-
-    #homeEventUI {
-        padding: 2vh 10vw;
-    }
-
-    #homeEventSubtitle {
-        margin-bottom: 0;
-    }
-
-    .eventTimer {
-        height: 85%;
-        aspect-ratio: 1;
-    }
-
-    .eventTimer > svg {
-        max-height: 100%;
+        width: 6vh;
+        top: calc(50% - 3vh);
     }
 }
 

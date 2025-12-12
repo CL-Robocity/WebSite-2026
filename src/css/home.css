@@ -22,12 +22,13 @@
     width: 100%;
     height: 100%;
 
-    padding: var(--HomeTitlePadding);
+    padding: calc(var(--NavBarHeight) / 2);
     box-sizing: border-box;
 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #homeTitleBox::after {
@@ -47,7 +48,7 @@
 #homeTitle {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: max-content;
 
     display: flex;
     justify-content: center;
@@ -58,7 +59,7 @@
 #homeTitle>.t {
     font-family: "CLvetica";
     color: var(--CLcolorMain);
-    font-size: var(--HomeTitlePadding);
+    font-size: clamp(1px, 8vw, 12vh);
 
     animation: glowAnim infinite alternate ease 4s;
 
@@ -68,30 +69,30 @@
 #homeTitle>.s {
     font-family: "CLvetica";
     color: #fff;
-    font-size: var(--HomeSubtitleFontSize);
+    font-size: var(--FS2b);
     align-self: center;
 }
 
 #homeButtons {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: max-content;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: start;
     flex-wrap: wrap;
 
-    padding: var(--HomeButtonsPadding) 0;
+    padding: 5vh 0;
     box-sizing: border-box;
 }
 
 #homeButtons > .button {
     position: relative;
-    font-size: var(--HomeButtonsSize);
+    font-size: var(--FS2);
     font-family: "CLvetica";
 
-    padding: calc(var(--HomeButtonsSize) * 5/8) 5%;
+    padding: 1.5vh 2.5vh;
     border: var(--CLcolorMain) 0.35vh solid;
     border-radius: 100vh;
 
@@ -113,11 +114,11 @@
 
 #homeButtons > .sponsors {
     color: var(--CLcolorMain);
-    filter: drop-shadow(0 0 var(--HomeButtonsSize) var(--CLcolorMain));
+    filter: drop-shadow(0 0 2vh var(--CLcolorMain));
 }
 
 #homeButtons > .team:hover {
-    filter: drop-shadow(0 0 var(--HomeButtonsSize) color-mix(in srgb, var(--CLcolorMain) 65%, transparent));
+    filter: drop-shadow(0 0 2vh color-mix(in srgb, var(--CLcolorMain) 65%, transparent));
 }
 
 #homeButtons > .sponsors:hover {
@@ -132,15 +133,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding: 0 calc(var(--NavBarHeight) / 2);
+    box-sizing: border-box;
+
+    overflow: hidden;
 }
 
 #homeImgContainer {
-    position: relative;
-    width: clamp(10px, var(--HomeImgSize), 70%);
+    position: absolute;
     aspect-ratio: 4/3;
+    width: clamp(0px, calc(100% - var(--NavBarHeight)), calc(calc(100vh - var(--NavBarHeight) * 2 + var(--SeparatorHeight)) * 4 / 3));
+    height: auto;
+
+    max-height: 100%;
 
     border: var(--CLcolorMain) 3px solid;
     border-radius: calc(var(--HomeImgSize) / 15) 0;
+    box-sizing: border-box;
 
     filter: drop-shadow(0 0 calc(var(--HomeImgSize) / 40) color-mix(in srgb, var(--CLcolorMain) 40%, transparent));
 
@@ -149,27 +159,28 @@
 
 #homeImgContainer > .arrow {
     position: absolute;
-    width: calc(var(--HomeImgSize) / 15);
+    width: 6lvh;
     aspect-ratio: 1;
 
-    top: calc(50% - calc(var(--HomeImgSize) / 15));
+    top: calc(50% - 3lvh);
+    border-radius: 100vh;
 
-    border-radius: 100%;
     background: color-mix(in srgb, var(--CLcolorMain) 80%, transparent);
     z-index: 10;
-    align-self: start;
+    align-self: end;
+    justify-self: center;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: calc(var(--HomeImgSize) / 15);
+    
 
     color: var(--CLcontrast);
-    font-size: calc(var(--HomeSubtitleFontSize) / 1.6);
-    filter: drop-shadow(0 0 0 var(--CLcolorMain));
+    font-size: var(--FS3);
+    line-height: var(--FS3);
 
+    filter: drop-shadow(0 0 0 var(--CLcolorMain));
     transition: all .1s ease;
-    user-select: none;
 }
 
 #homeImgContainer > .arrow:hover {
@@ -229,22 +240,63 @@
     transform: scale(1.05);
 }
 
-@keyframes glowAnim {
-    0% {
-        filter: drop-shadow(0 0 2vh color-mix(in srgb, var(--CLcolorMain) 65%, transparent));
-    }
-    100% {
-        filter: drop-shadow(0 0 3vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent));
-    }
+#homeBox > .second {
+    background: var(--B2);
 }
 
-#homeBox > .second {
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#homesponsorSliderContainer {
+    position: relative;
+    width: 100%;
+    height: 25vh;
 
+    overflow: hidden;
+}
+
+#homeSponsorsUI {
+    position: absolute;
+    width: 125%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+
+    place-items: center;
+
+    will-change: transform;
+    transition: trasform 1ms linear;
+
+    overflow: hidden;
+}
+
+.sponsorSliderElement {
+    width: fit-content;
+    height: fit-content;
+    max-height: 90%;
+    max-width: 90%;
+
+    border-radius: 2vh;
+    background-color: var(--B3);
+
+    padding: 2vh;
+    box-sizing: border-box;
+
+    display: flex;
+    min-height: 0;
+    min-width: 0;
+
+    will-change: grid-column;
+    
+    filter: drop-shadow(.5vh .5vh .5vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent));
+}
+
+.sponsorSliderElement > img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+#homeBox > .third {
     background: var(--B2);
 }
 
@@ -258,31 +310,6 @@
     grid-template-rows: max-content max-content 1fr;
 }
 
-#homeEventTitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: "CLvetica";
-    font-size: calc(var(--HomeSubtitleFontSize) * 2);
-    color: var(--CLcolorMain);
-    animation: glowAnim infinite alternate ease 4s;
-
-    margin-bottom: 2vh;
-}
-
-#homeEventSubtitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: "CLvetica";
-    color: #fff;
-    font-size: calc(var(--HomeSubtitleFontSize) / 1.5 );
-
-    margin-bottom: 4vh;
-}
-
 #homeEventUI {
     position: relative;
     width: 100%;
@@ -292,8 +319,7 @@
     grid-template-rows: 1;
     grid-template-columns: repeat(4, 1fr);
 
-    padding: 2vh 10vh;
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .eventTimer {
@@ -350,87 +376,30 @@
 }
 
 .eventTimerLabels > .n {
-    position: relative;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
     font-family: "CLvetica";
     color: var(--CLcolorMain);
-    font-size: calc(var(--HomeSubtitleFontSize) * 2);
+    font-size: 4vw;
 }
 
 .eventTimerLabels > .nL {
-    position: relative;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
     font-family: "CLsans";
     color: #fff;
-    font-size: calc(var(--HomeSubtitleFontSize) / 1.5);
+    font-size: 1vw;
 }
 
-#homeBox > .third {
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background: var(--B2);
-}
-
-#homesponsorSliderContainer {
-    position: relative;
-    width: 100%;
-    height: 25vh;
-
-    overflow: hidden;
-}
-
-#homeSponsorsUI {
-    position: absolute;
-    width: 125%;
-    height: 100%;
-
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
-
-    place-items: center;
-
-    will-change: transform;
-    transition: trasform 1ms linear;
-
-    overflow: hidden;
-}
-
-.sponsorSliderElement {
-    width: fit-content;
-    height: fit-content;
-    max-height: 90%;
-    max-width: 90%;
-
-    border-radius: 2vh;
-    background-color: var(--B3);
-
-    padding: 2vh;
-    box-sizing: border-box;
-
-    display: flex;
-    min-height: 0;
-    min-width: 0;
-
-    will-change: grid-column;
-    
-    filter: drop-shadow(.5vh .5vh .5vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent));
-}
-
-.sponsorSliderElement > img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
+@keyframes glowAnim {
+    0% {
+        filter: drop-shadow(0 0 2vh color-mix(in srgb, var(--CLcolorMain) 65%, transparent));
+    }
+    100% {
+        filter: drop-shadow(0 0 3vh color-mix(in srgb, var(--CLcolorMain) 35%, transparent));
+    }
 }

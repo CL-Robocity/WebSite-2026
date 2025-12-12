@@ -58,7 +58,7 @@ function barSelectionObserver() {
 
         currentTab = elm.innerHTML
 
-        if (window.scrollY >= normY && window.scrollY < normY + normRect) {
+        if (window.scrollY + 1 >= normY && window.scrollY + 1< normY + normRect) {
             elm.classList.add("selected")
         } else {
             elm.classList.remove("selected")
@@ -325,7 +325,7 @@ function TeamUICreator() {
         
         teamMembersContainer.appendChild(elm)
     }
-    scrollFetchPosition(0)
+    setTimeout(() => {scrollFetchPosition(1)}, 500)
 }
 TeamUICreator()
 

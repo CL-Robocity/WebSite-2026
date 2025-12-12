@@ -67,7 +67,7 @@
 }
 
 .barList {
-    font-size: var(--NavBarFontSize);
+    font-size: var(--FS3);
     color: #fff;
     font-family: "CLvetica";
 
