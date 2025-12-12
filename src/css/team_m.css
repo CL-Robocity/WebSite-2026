@@ -28,6 +28,10 @@
         scale: 100%;
     }
 
+    #teamSpecsBox  {
+        display: none;
+    }
+
     /*#teamMembersContainer > .arrow.l {
         left: -30vw;
     }
