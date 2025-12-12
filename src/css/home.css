@@ -227,13 +227,13 @@
     background-position: center;
     background-size: cover;
 
-    transition: transform .5s ease, opacity 1s cubic-bezier(.4, 2, .6, 1);
+    transition: transform .5s ease, filter .4s linear;
 
-    opacity: 0%;
+    filter: blur(2px) brightness(60%);
 }
 
 #homeImgWrapper > .img.selected {
-    opacity: 100%;
+    filter: blur(0px) brightness(100%);
 }
 
 #homeImgWrapper > .img:hover {
