@@ -55,21 +55,16 @@ export const dataTeamMembers = [
         {name: "Max", img: "./src/assets/img/team1.png", role:"Costruttore", txt: "Mi chiedi un pezzo e te lo trovo (la maggior parte delle volte)"},
         {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
         {name: "ILMETS", img: "./src/assets/img/team1.png", role:"Costruttore", txt: "Sono pronto a fare qualcosa........... se qualcuno definisce cosa!"},
-        {name: "Zano", img: "./src/assets/img/team1.png", role:"Costruttore - Programmatore", txt: "quando non costruisco programmo, quando non programmo costruisco"}
+        {name: "Zano", img: "./src/assets/img/team1.png", role:"Costruttore - Programmatore", txt: "quando non costruisco programmo, quando non programmo costruisco"},
+        {name: "Simo", img: "./src/assets/img/team1.png", role:"Hahahah", txt: "Questa è la via"},
+        {name: "Coach", img: "./src/assets/img/team1.png", role:"COACH", txt: "Coach"},
+
     ],
     [ //FTC
         {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
         {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
         {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
-        {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
-        {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
-        {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
-        {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
-        {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
-        {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
-        {name: "Aiello", img: "./src/assets/img/team1.png", role:"Head Programmer", txt: "Programmo anche nel Sonno >_<"},
-        {name: "Peru", img: "./src/assets/img/team1.png", role:"COACH", txt: "Osint? flag{N0_1nf0_h3r3}"},
-        {name: "Easter", img: "./src/assets/img/team1.png", role:"Mechanical (CAD & Hardware)", txt: `Roboalcoholic, "Oggi l'intake lo finisco"`},
+        {name: "Coach", img: "./src/assets/img/team1.png", role:"COACH", txt: "Coach"},
     ]
 ]
 

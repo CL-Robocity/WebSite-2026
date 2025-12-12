@@ -70,6 +70,10 @@
         top: calc(50% - calc(var(--HomeImgSize) / 30));
     }
 
+    #homeEventBox {
+        height: 60lvh;
+    }
+
     #homeEventTitle {
         text-align: center;
         padding: 0 2vh;
@@ -84,26 +88,18 @@
     }
 
     .eventTimer  {
-        max-width: 200px;
-    }
-
-    #homeBox > .second {
-        height: 70vh;
-    }
-
-    #homeBox > .third {
-        height: 30vh;
+        height: 85%;
+        aspect-ratio: 1;
     }
 
     #homesponsorSliderContainer {
-        height: 50%;
+        height: 20vh;
     }
 
     .sponsorSliderElement {
         padding: 1.3vh;
     }
 }
-
 
 @media only screen and (orientation: portrait) and (min-height: 800px) {
     #homeImgContainer > .arrow {

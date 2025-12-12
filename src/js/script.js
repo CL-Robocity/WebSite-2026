@@ -338,12 +338,20 @@ export function scrollFetchPosition(dir) {
 
         e.style.zIndex = `${parseInt((Math.sin(defaultTheta*id+Math.PI/2)+teamConsts.kz)*100)+1000}`
         e.style.transform = `perspective(50vh) 
-                                translateY(${(Math.sin(defaultTheta*id+teamConsts.a)+teamConsts.ky)*teamConsts.y}vw) 
-                                translateZ(${(Math.sin(defaultTheta*id+teamConsts.a)+teamConsts.kz)*teamConsts.z}vw) 
-                                translateX(${(Math.cos(defaultTheta*id+teamConsts.a)+teamConsts.kx)*teamConsts.x}vw)`
+                            translateY(${(Math.sin(defaultTheta*id+teamConsts.a)+teamConsts.ky)*teamConsts.y}vw) 
+                            translateZ(${(Math.sin(defaultTheta*id+teamConsts.a)+teamConsts.kz)*teamConsts.z}vw) 
+                            translateX(${(Math.cos(defaultTheta*id+teamConsts.a)+teamConsts.kx)*teamConsts.x}vw)`
         e.id = `teamP${id}`
     })
 }
+
+//NOTE - TeamArrows
+document.querySelector("#teamMembersContainer > .arrow.l").addEventListener("click", () => {
+    scrollFetchPosition(-1)
+})
+document.querySelector("#teamMembersContainer > .arrow.r").addEventListener("click", () => {
+    scrollFetchPosition(1)
+})
 //!SECTION
 
 //SECTION - Utiliy

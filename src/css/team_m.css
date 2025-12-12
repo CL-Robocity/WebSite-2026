@@ -1,23 +1,38 @@
 @media only screen and (orientation: portrait) {
-    #teamBox > .first {
-        height: 90vh;
+
+    #teamBox > .first > .pageTitle {
+        position: absolute;
+        top: 5vh;
+        z-index: 1000;
+    }
+
+    #teamMembersBox {
+        position: relative;
+        height: 100lvh;
+
+        overflow: visible;
+    }
+
+    #teamMembersContainer {
+        width: 60%;
+        height: 100%;
     }
 
     .teamMember {
-        height: 70%;
-        min-width: 50vw;
-        scale: 80%;
+        height: 50%;
+        width: 100%;
+        scale: 75%;
     }
 
     .teamMember#teamP0 {
         scale: 100%;
     }
 
-    #teamMembersContainer > .arrow.l {
+    /*#teamMembersContainer > .arrow.l {
         left: -30vw;
     }
 
     #teamMembersContainer > .arrow.r {
         right: -30vw;
-    }
+    }*/
 }
