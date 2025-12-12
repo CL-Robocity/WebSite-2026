@@ -4,6 +4,10 @@
     height: max-content;
 }
 
+#teamBox::after {
+    z-index: 1000;
+}
+
 #teamBox > .first {
     position: relative;
     width: 100%;
@@ -13,6 +17,10 @@
     justify-content: center;
     align-items: center;
     background-color: var(--B1);
+}
+
+#teamBox > .first::after {
+    z-index: 1000;
 }
 
 #teamMembersBox {
@@ -43,8 +51,11 @@
 
     font-family: "CLvetica";
     color: var(--CLcontrast);
-    font-size: calc(var(--HomeSubtitleFontSize) / 1.6);
 
+    top: calc(50% - 3vh);
+    
+    font-size: var(--FS3);
+    line-height: var(--FS3);
     
     filter: drop-shadow(0 0 0 var(--CLcolorMain));
     border-radius: 100vh;
@@ -72,7 +83,6 @@
 
 #teamMembersContainer > .arrow.r {
     right: -7vh;
-    transform: translateY(2%);
 }
 
 .teamMember {
