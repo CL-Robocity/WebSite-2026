@@ -127,12 +127,12 @@ function fetchMode() {
         document.documentElement.style.setProperty("--CLcontrast", "#000")
         document.documentElement.style.setProperty("--CLcolorMain", styles.getPropertyValue("--CLcolor2").trim())
 
-        favicon.href = "./src/assets/svg/CLquadratoFTC.svg"
+        favicon.href = "./src/assets/svg/CLquadratoFTC2.svg"
     } else {
         document.documentElement.style.setProperty("--CLcontrast", "#fff")
         document.documentElement.style.setProperty("--CLcolorMain", styles.getPropertyValue("--CLcolor1").trim())
 
-        favicon.href = "./src/assets/svg/CLquadratoFLL.svg"
+        favicon.href = "./src/assets/svg/CLquadratoFLL2.svg"
     }
 }
 
